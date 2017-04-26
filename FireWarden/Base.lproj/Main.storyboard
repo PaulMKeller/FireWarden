@@ -52,12 +52,15 @@
                             <outlet property="delegate" destination="OwB-lE-lgI" id="aX1-YC-EQT"/>
                         </connections>
                     </tableView>
+                    <toolbarItems>
+                        <barButtonItem title="Save" id="Wni-rb-Mka"/>
+                    </toolbarItems>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t61-eF-KtU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2814" y="-502"/>
+            <point key="canvasLocation" x="3065" y="-483"/>
         </scene>
-        <!--Person List-->
+        <!--Second View Controller-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
                 <viewController id="8rJ-Kc-sve" customClass="SecondViewController" customModule="FireWarden" customModuleProvider="target" sceneMemberID="viewController">
@@ -91,11 +94,11 @@
                             <constraint firstAttribute="centerY" secondItem="zEq-FU-wV5" secondAttribute="centerY" id="qzY-Ky-pLD"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Person List" image="second" id="cPa-gy-q4n"/>
+                    <navigationItem key="navigationItem" id="xnC-T6-Mcy"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1193" y="238"/>
+            <point key="canvasLocation" x="2132" y="237.93103448275863"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="9sQ-0p-Zya">
@@ -161,32 +164,13 @@
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
-                        <segue destination="NII-qD-Jyz" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
-                        <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
+                        <segue destination="SZJ-1T-Z1B" kind="relationship" relationship="viewControllers" id="raB-D7-f6t"/>
+                        <segue destination="5bS-nd-OFS" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="0.0" y="0.0"/>
-        </scene>
-        <!--Register-->
-        <scene sceneID="i9G-Wb-ArJ">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="NII-qD-Jyz" customClass="RegisterNavigationController" customModule="FireWarden" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Register" image="first" id="acW-dT-cKf"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="fSt-J7-ZTh">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="R1U-r2-NKk" kind="show" identifier="RegisterSegue" id="KtT-OB-og4"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wZ5-oo-cRa" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1192.8" y="-502.39880059970017"/>
         </scene>
         <!--Register Table View Controller-->
         <scene sceneID="Khc-4r-ZTs">
@@ -237,16 +221,59 @@
                             <outlet property="delegate" destination="R1U-r2-NKk" id="fel-Ob-H9b"/>
                         </connections>
                     </tableView>
+                    <toolbarItems>
+                        <barButtonItem title="Add" id="EpT-V3-JqZ"/>
+                        <barButtonItem title="Save" id="IE3-vn-T6q"/>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" id="awu-lV-F2b"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IN9-ph-iNT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1973.5999999999999" y="-502.39880059970017"/>
+            <point key="canvasLocation" x="2132" y="-482"/>
+        </scene>
+        <!--Person List-->
+        <scene sceneID="jBL-6P-Pdy">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5bS-nd-OFS" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Person List" image="second" id="cPa-gy-q4n"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="0co-Tq-J9V">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="8rJ-Kc-sve" kind="relationship" relationship="rootViewController" id="xar-mI-f4H"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jh6-7d-qFX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1192.8" y="237.93103448275863"/>
+        </scene>
+        <!--Register-->
+        <scene sceneID="5mZ-G5-Wnd">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="SZJ-1T-Z1B" customClass="RegisterNavigationController" customModule="FireWarden" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Register" id="dBu-cz-5pJ"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2sy-6S-gtP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="R1U-r2-NKk" kind="relationship" relationship="rootViewController" id="ice-QF-2Tp"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gUB-lA-lnc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1193" y="-481"/>
         </scene>
     </scenes>
     <resources>
         <image name="Fingerprint.png" width="1280" height="960"/>
         <image name="FireWarden.jpg" width="134" height="134"/>
-        <image name="first" width="30" height="30"/>
         <image name="second" width="30" height="30"/>
     </resources>
 </document>
