@@ -8,13 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		DAD7522E1EADAA7D0018FA60 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD7522D1EADAA7D0018FA60 /* AppDelegate.swift */; };
-		DAD752301EADAA7D0018FA60 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD7522F1EADAA7D0018FA60 /* FirstViewController.swift */; };
-		DAD752321EADAA7D0018FA60 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD752311EADAA7D0018FA60 /* SecondViewController.swift */; };
 		DAD752351EADAA7D0018FA60 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAD752331EADAA7D0018FA60 /* Main.storyboard */; };
 		DAD752371EADAA7D0018FA60 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAD752361EADAA7D0018FA60 /* Assets.xcassets */; };
 		DAD7523A1EADAA7D0018FA60 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAD752381EADAA7D0018FA60 /* LaunchScreen.storyboard */; };
 		DAD752451EADAA7D0018FA60 /* FireWardenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD752441EADAA7D0018FA60 /* FireWardenTests.swift */; };
 		DAD752501EADAA7D0018FA60 /* FireWardenUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD7524F1EADAA7D0018FA60 /* FireWardenUITests.swift */; };
+		DAFCD33F1EB06FFF0055DAD5 /* Images in Resources */ = {isa = PBXBuildFile; fileRef = DAFCD33E1EB06FFF0055DAD5 /* Images */; };
+		DAFCD3421EB0718B0055DAD5 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAFCD3411EB0718B0055DAD5 /* LocalAuthentication.framework */; };
+		DAFCD3451EB073160055DAD5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFCD3441EB073160055DAD5 /* LoginViewController.swift */; };
+		DAFCD3471EB081E00055DAD5 /* RegisterNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFCD3461EB081E00055DAD5 /* RegisterNavigationController.swift */; };
+		DAFCD34A1EB082390055DAD5 /* RegisterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFCD3491EB082390055DAD5 /* RegisterTableViewController.swift */; };
+		DAFCD34C1EB0838B0055DAD5 /* PersonRegistrationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFCD34B1EB0838B0055DAD5 /* PersonRegistrationTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,8 +41,6 @@
 /* Begin PBXFileReference section */
 		DAD7522A1EADAA7C0018FA60 /* FireWarden.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FireWarden.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAD7522D1EADAA7D0018FA60 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DAD7522F1EADAA7D0018FA60 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		DAD752311EADAA7D0018FA60 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		DAD752341EADAA7D0018FA60 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DAD752361EADAA7D0018FA60 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DAD752391EADAA7D0018FA60 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +51,12 @@
 		DAD7524B1EADAA7D0018FA60 /* FireWardenUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FireWardenUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAD7524F1EADAA7D0018FA60 /* FireWardenUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireWardenUITests.swift; sourceTree = "<group>"; };
 		DAD752511EADAA7D0018FA60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DAFCD33E1EB06FFF0055DAD5 /* Images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Images; sourceTree = "<group>"; };
+		DAFCD3411EB0718B0055DAD5 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
+		DAFCD3441EB073160055DAD5 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		DAFCD3461EB081E00055DAD5 /* RegisterNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterNavigationController.swift; sourceTree = "<group>"; };
+		DAFCD3491EB082390055DAD5 /* RegisterTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterTableViewController.swift; sourceTree = "<group>"; };
+		DAFCD34B1EB0838B0055DAD5 /* PersonRegistrationTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonRegistrationTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAFCD3421EB0718B0055DAD5 /* LocalAuthentication.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +92,7 @@
 				DAD752431EADAA7D0018FA60 /* FireWardenTests */,
 				DAD7524E1EADAA7D0018FA60 /* FireWardenUITests */,
 				DAD7522B1EADAA7C0018FA60 /* Products */,
+				DAFCD3401EB0718B0055DAD5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,9 +109,9 @@
 		DAD7522C1EADAA7C0018FA60 /* FireWarden */ = {
 			isa = PBXGroup;
 			children = (
+				DAFCD3431EB072DE0055DAD5 /* ViewControllers */,
+				DAFCD33E1EB06FFF0055DAD5 /* Images */,
 				DAD7522D1EADAA7D0018FA60 /* AppDelegate.swift */,
-				DAD7522F1EADAA7D0018FA60 /* FirstViewController.swift */,
-				DAD752311EADAA7D0018FA60 /* SecondViewController.swift */,
 				DAD752331EADAA7D0018FA60 /* Main.storyboard */,
 				DAD752361EADAA7D0018FA60 /* Assets.xcassets */,
 				DAD752381EADAA7D0018FA60 /* LaunchScreen.storyboard */,
@@ -126,6 +136,25 @@
 				DAD752511EADAA7D0018FA60 /* Info.plist */,
 			);
 			path = FireWardenUITests;
+			sourceTree = "<group>";
+		};
+		DAFCD3401EB0718B0055DAD5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DAFCD3411EB0718B0055DAD5 /* LocalAuthentication.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DAFCD3431EB072DE0055DAD5 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				DAFCD3441EB073160055DAD5 /* LoginViewController.swift */,
+				DAFCD3461EB081E00055DAD5 /* RegisterNavigationController.swift */,
+				DAFCD3491EB082390055DAD5 /* RegisterTableViewController.swift */,
+				DAFCD34B1EB0838B0055DAD5 /* PersonRegistrationTableViewController.swift */,
+			);
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -238,6 +267,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAFCD33F1EB06FFF0055DAD5 /* Images in Resources */,
 				DAD7523A1EADAA7D0018FA60 /* LaunchScreen.storyboard in Resources */,
 				DAD752371EADAA7D0018FA60 /* Assets.xcassets in Resources */,
 				DAD752351EADAA7D0018FA60 /* Main.storyboard in Resources */,
@@ -265,9 +295,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DAD752321EADAA7D0018FA60 /* SecondViewController.swift in Sources */,
+				DAFCD34A1EB082390055DAD5 /* RegisterTableViewController.swift in Sources */,
+				DAFCD3471EB081E00055DAD5 /* RegisterNavigationController.swift in Sources */,
+				DAFCD34C1EB0838B0055DAD5 /* PersonRegistrationTableViewController.swift in Sources */,
+				DAFCD3451EB073160055DAD5 /* LoginViewController.swift in Sources */,
 				DAD7522E1EADAA7D0018FA60 /* AppDelegate.swift in Sources */,
-				DAD752301EADAA7D0018FA60 /* FirstViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -518,6 +550,7 @@
 				DAD752561EADAA7D0018FA60 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DAD752571EADAA7D0018FA60 /* Build configuration list for PBXNativeTarget "FireWardenTests" */ = {
 			isa = XCConfigurationList;
@@ -526,6 +559,7 @@
 				DAD752591EADAA7D0018FA60 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DAD7525A1EADAA7D0018FA60 /* Build configuration list for PBXNativeTarget "FireWardenUITests" */ = {
 			isa = XCConfigurationList;
@@ -534,6 +568,7 @@
 				DAD7525C1EADAA7D0018FA60 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
