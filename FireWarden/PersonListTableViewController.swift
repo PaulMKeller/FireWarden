@@ -1,14 +1,14 @@
 //
-//  RegisterTableViewController.swift
+//  PersonListTableViewController.swift
 //  FireWarden
 //
-//  Created by Paul Keller on 26/4/17.
+//  Created by Paul Keller on 27/4/17.
 //  Copyright © 2017 PlanetKGames. All rights reserved.
 //
 
 import UIKit
 
-class RegisterTableViewController: UITableViewController {
+class PersonListTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,16 +34,18 @@ class RegisterTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 4
+        return 1
     }
 
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "RegisterEvents", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PersonListCell", for: indexPath)
 
         // Configure the cell...
 
         return cell
     }
+ 
 
     /*
     // Override to support conditional editing of the table view.

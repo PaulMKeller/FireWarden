@@ -1,14 +1,14 @@
 //
-//  SecondViewController.swift
+//  PersonListNavigationController.swift
 //  FireWarden
 //
-//  Created by Paul Keller on 26/4/17.
+//  Created by Paul Keller on 27/4/17.
 //  Copyright © 2017 PlanetKGames. All rights reserved.
 //
 
 import UIKit
 
-class SecondViewController: UIViewController {
+class PersonListNavigationController: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

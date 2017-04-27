@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DA9403A51EB1F46100092DCC /* PersonListNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9403A41EB1F46100092DCC /* PersonListNavigationController.swift */; };
+		DA9403A71EB1F4ED00092DCC /* PersonListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9403A61EB1F4ED00092DCC /* PersonListTableViewController.swift */; };
+		DA9403A91EB1F53500092DCC /* PersonListDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9403A81EB1F53500092DCC /* PersonListDetailViewController.swift */; };
 		DAD7522E1EADAA7D0018FA60 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD7522D1EADAA7D0018FA60 /* AppDelegate.swift */; };
 		DAD752351EADAA7D0018FA60 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAD752331EADAA7D0018FA60 /* Main.storyboard */; };
 		DAD752371EADAA7D0018FA60 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAD752361EADAA7D0018FA60 /* Assets.xcassets */; };
@@ -20,7 +23,6 @@
 		DAFCD34C1EB0838B0055DAD5 /* PersonRegistrationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFCD34B1EB0838B0055DAD5 /* PersonRegistrationTableViewController.swift */; };
 		DAFCD3501EB098060055DAD5 /* Fingerprint.png in Resources */ = {isa = PBXBuildFile; fileRef = DAFCD34E1EB098060055DAD5 /* Fingerprint.png */; };
 		DAFCD3511EB098060055DAD5 /* FireWarden.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DAFCD34F1EB098060055DAD5 /* FireWarden.jpg */; };
-		DAFCD3531EB09CF00055DAD5 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFCD3521EB09CF00055DAD5 /* SecondViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +43,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DA9403A41EB1F46100092DCC /* PersonListNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonListNavigationController.swift; sourceTree = "<group>"; };
+		DA9403A61EB1F4ED00092DCC /* PersonListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonListTableViewController.swift; sourceTree = "<group>"; };
+		DA9403A81EB1F53500092DCC /* PersonListDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonListDetailViewController.swift; sourceTree = "<group>"; };
 		DAD7522A1EADAA7C0018FA60 /* FireWarden.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FireWarden.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAD7522D1EADAA7D0018FA60 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DAD752341EADAA7D0018FA60 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -60,7 +65,6 @@
 		DAFCD34B1EB0838B0055DAD5 /* PersonRegistrationTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonRegistrationTableViewController.swift; sourceTree = "<group>"; };
 		DAFCD34E1EB098060055DAD5 /* Fingerprint.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Fingerprint.png; path = Images/Fingerprint.png; sourceTree = "<group>"; };
 		DAFCD34F1EB098060055DAD5 /* FireWarden.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = FireWarden.jpg; path = Images/FireWarden.jpg; sourceTree = "<group>"; };
-		DAFCD3521EB09CF00055DAD5 /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,7 +161,9 @@
 				DAFCD3461EB081E00055DAD5 /* RegisterNavigationController.swift */,
 				DAFCD3491EB082390055DAD5 /* RegisterTableViewController.swift */,
 				DAFCD34B1EB0838B0055DAD5 /* PersonRegistrationTableViewController.swift */,
-				DAFCD3521EB09CF00055DAD5 /* SecondViewController.swift */,
+				DA9403A41EB1F46100092DCC /* PersonListNavigationController.swift */,
+				DA9403A61EB1F4ED00092DCC /* PersonListTableViewController.swift */,
+				DA9403A81EB1F53500092DCC /* PersonListDetailViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -310,11 +316,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DAFCD3531EB09CF00055DAD5 /* SecondViewController.swift in Sources */,
 				DAFCD34A1EB082390055DAD5 /* RegisterTableViewController.swift in Sources */,
 				DAFCD3471EB081E00055DAD5 /* RegisterNavigationController.swift in Sources */,
 				DAFCD34C1EB0838B0055DAD5 /* PersonRegistrationTableViewController.swift in Sources */,
+				DA9403A71EB1F4ED00092DCC /* PersonListTableViewController.swift in Sources */,
+				DA9403A91EB1F53500092DCC /* PersonListDetailViewController.swift in Sources */,
 				DAFCD3451EB073160055DAD5 /* LoginViewController.swift in Sources */,
+				DA9403A51EB1F46100092DCC /* PersonListNavigationController.swift in Sources */,
 				DAD7522E1EADAA7D0018FA60 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
