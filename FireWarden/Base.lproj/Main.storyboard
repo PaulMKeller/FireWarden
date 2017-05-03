@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Person Registration Table View Controller-->
+        <!--18/04/2017-->
         <scene sceneID="ObK-Mr-haG">
             <objects>
                 <tableViewController id="OwB-lE-lgI" customClass="PersonRegistrationTableViewController" customModule="FireWarden" customModuleProvider="target" sceneMemberID="viewController">
@@ -53,6 +53,9 @@
                         </connections>
                     </tableView>
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" title="18/04/2017" id="tnI-Hb-IG2">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="hbj-nR-WU7"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t61-eF-KtU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -171,7 +174,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="OwB-lE-lgI" kind="show" id="8V0-c0-5Sx"/>
+                                    <segue destination="OwB-lE-lgI" kind="show" identifier="RegisterDetailsSegue" id="8V0-c0-5Sx"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -183,14 +186,26 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Register" id="awu-lV-F2b">
                         <barButtonItem key="backBarButtonItem" title="Back" id="7f1-3o-GAa"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="PEp-X7-UnH">
+                            <connections>
+                                <segue destination="OwB-lE-lgI" kind="show" identifier="AddNewRegisterSegue" id="VAp-c4-P77"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IN9-ph-iNT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationBar contentMode="scaleToFill" id="aT6-3f-E94">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <items>
+                        <navigationItem title="Title" id="vHo-Ge-hL3"/>
+                    </items>
+                </navigationBar>
             </objects>
             <point key="canvasLocation" x="2132" y="-482"/>
         </scene>
-        <!--Person List Table View Controller-->
+        <!--Person List-->
         <scene sceneID="exU-wY-ar7">
             <objects>
                 <tableViewController id="Q9Y-DL-9AP" customClass="PersonListTableViewController" customModule="FireWarden" customModuleProvider="target" sceneMemberID="viewController">
@@ -223,7 +238,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="vxk-l0-Uwu" kind="show" action="showDetailViewController:sender:" id="rQr-tO-IQQ"/>
+                                    <segue destination="dQi-gT-afZ" kind="show" identifier="PersonDetailsSegue" id="gMk-jq-kxq"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -232,13 +247,57 @@
                             <outlet property="delegate" destination="Q9Y-DL-9AP" id="2oN-Pk-7mF"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="GiX-OS-Prc"/>
+                    <navigationItem key="navigationItem" title="Person List" id="GiX-OS-Prc">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="IMQ-rh-B9s">
+                            <connections>
+                                <segue destination="dQi-gT-afZ" kind="show" identifier="AddNewPersonSegue" id="Lrl-9x-kXI"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="awl-0p-LtY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2132" y="238"/>
         </scene>
-        <!--Settings Table View Controller-->
+        <!--Person Details-->
+        <scene sceneID="zFj-3D-19L">
+            <objects>
+                <viewController id="dQi-gT-afZ" customClass="PersonListDetailViewController" customModule="FireWarden" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="iHm-Bg-JBG"/>
+                        <viewControllerLayoutGuide type="bottom" id="jN6-FO-vjP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gbf-7p-IxE">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Details of a person can be edited or added here." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ip1-XU-a1k">
+                                <rect key="frame" x="85" y="289" width="205" height="89"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="89" id="60m-yw-ODr"/>
+                                    <constraint firstAttribute="width" constant="205" id="C4w-To-C2x"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Ip1-XU-a1k" firstAttribute="centerX" secondItem="gbf-7p-IxE" secondAttribute="centerX" id="hbr-M1-Oub"/>
+                            <constraint firstItem="Ip1-XU-a1k" firstAttribute="centerY" secondItem="gbf-7p-IxE" secondAttribute="centerY" id="lHB-rD-lqM"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Person Details" id="eOg-pV-CZg">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="1bE-j0-QEC"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Q5y-yN-dIJ"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="T6u-bP-3o8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3065" y="238"/>
+        </scene>
+        <!--Settings-->
         <scene sceneID="skm-oI-j4s">
             <objects>
                 <tableViewController id="mue-Vq-mLU" customClass="SettingsTableViewController" customModule="FireWarden" customModuleProvider="target" sceneMemberID="viewController">
@@ -273,7 +332,7 @@
                             <outlet property="delegate" destination="mue-Vq-mLU" id="pax-EM-q6g"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="PW3-sJ-PH4"/>
+                    <navigationItem key="navigationItem" title="Settings" id="PW3-sJ-PH4"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vgV-Sq-30k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -319,7 +378,7 @@
             </objects>
             <point key="canvasLocation" x="2891" y="1004"/>
         </scene>
-        <!--Setting Details View Controller-->
+        <!--Setting Detail-->
         <scene sceneID="TYq-LO-TTt">
             <objects>
                 <viewController id="chr-GX-fvj" customClass="SettingDetailsViewController" customModule="FireWarden" customModuleProvider="target" sceneMemberID="viewController">
@@ -330,33 +389,33 @@
                     <view key="view" contentMode="scaleToFill" id="M1t-BV-J5D">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Setting details go here and will be edited or added" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TcN-bj-N4M">
+                                <rect key="frame" x="111" y="289" width="153" height="89"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="89" id="BK4-RN-uiL"/>
+                                    <constraint firstAttribute="width" constant="153" id="j6y-xV-qTU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="TcN-bj-N4M" firstAttribute="centerY" secondItem="M1t-BV-J5D" secondAttribute="centerY" id="VEW-hH-FZS"/>
+                            <constraint firstItem="TcN-bj-N4M" firstAttribute="centerX" secondItem="M1t-BV-J5D" secondAttribute="centerX" id="ra9-FH-k6f"/>
+                        </constraints>
                     </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Setting Detail" id="jAo-lj-LO1">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="PJE-5K-kCP"/>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FmZ-ZA-19N" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3660" y="1004"/>
-        </scene>
-        <!--Person Details-->
-        <scene sceneID="H79-xP-1TH">
-            <objects>
-                <viewController id="vxk-l0-Uwu" customClass="PersonListDetailViewController" customModule="FireWarden" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Sre-zn-SKb"/>
-                        <viewControllerLayoutGuide type="bottom" id="JPU-DQ-qoi"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Zod-go-yFc">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Person Details" id="bpp-C2-83L">
-                        <barButtonItem key="backBarButtonItem" title="Back" id="zWn-Ej-YUE"/>
-                    </navigationItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7r0-fT-vos" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3065" y="238"/>
+            <point key="canvasLocation" x="3660" y="1003.4482758620691"/>
         </scene>
         <!--Register-->
         <scene sceneID="5mZ-G5-Wnd">
@@ -426,4 +485,8 @@
         <image name="Settings Filled.png" width="30" height="30"/>
         <image name="Settings.png" width="30" height="30"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="VAp-c4-P77"/>
+        <segue reference="Lrl-9x-kXI"/>
+    </inferredMetricsTieBreakers>
 </document>
