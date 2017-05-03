@@ -39,7 +39,7 @@ class PersonListTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "PersonListCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PersonCell", for: indexPath)
 
         // Configure the cell...
 

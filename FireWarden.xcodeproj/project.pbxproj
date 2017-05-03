@@ -36,6 +36,12 @@
 		DA30D2E81EB890F700D6ACAF /* iTunesArtwork@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA30D2E51EB890F700D6ACAF /* iTunesArtwork@1x.png */; };
 		DA30D2E91EB890F700D6ACAF /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA30D2E61EB890F700D6ACAF /* iTunesArtwork@2x.png */; };
 		DA30D2EA1EB890F700D6ACAF /* iTunesArtwork@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA30D2E71EB890F700D6ACAF /* iTunesArtwork@3x.png */; };
+		DA823FF81EB97E2C00AB818C /* ID Verified.png in Resources */ = {isa = PBXBuildFile; fileRef = DA823FF21EB97E2C00AB818C /* ID Verified.png */; };
+		DA823FF91EB97E2C00AB818C /* ID Verified Filled.png in Resources */ = {isa = PBXBuildFile; fileRef = DA823FF31EB97E2C00AB818C /* ID Verified Filled.png */; };
+		DA823FFA1EB97E2C00AB818C /* Conference.png in Resources */ = {isa = PBXBuildFile; fileRef = DA823FF41EB97E2C00AB818C /* Conference.png */; };
+		DA823FFB1EB97E2C00AB818C /* Conference Filled.png in Resources */ = {isa = PBXBuildFile; fileRef = DA823FF51EB97E2C00AB818C /* Conference Filled.png */; };
+		DA823FFC1EB97E2C00AB818C /* Settings.png in Resources */ = {isa = PBXBuildFile; fileRef = DA823FF61EB97E2C00AB818C /* Settings.png */; };
+		DA823FFD1EB97E2C00AB818C /* Settings Filled.png in Resources */ = {isa = PBXBuildFile; fileRef = DA823FF71EB97E2C00AB818C /* Settings Filled.png */; };
 		DA9403A51EB1F46100092DCC /* PersonListNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9403A41EB1F46100092DCC /* PersonListNavigationController.swift */; };
 		DA9403A71EB1F4ED00092DCC /* PersonListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9403A61EB1F4ED00092DCC /* PersonListTableViewController.swift */; };
 		DA9403A91EB1F53500092DCC /* PersonListDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9403A81EB1F53500092DCC /* PersonListDetailViewController.swift */; };
@@ -101,6 +107,12 @@
 		DA30D2E51EB890F700D6ACAF /* iTunesArtwork@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@1x.png"; sourceTree = "<group>"; };
 		DA30D2E61EB890F700D6ACAF /* iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@2x.png"; sourceTree = "<group>"; };
 		DA30D2E71EB890F700D6ACAF /* iTunesArtwork@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@3x.png"; sourceTree = "<group>"; };
+		DA823FF21EB97E2C00AB818C /* ID Verified.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ID Verified.png"; sourceTree = "<group>"; };
+		DA823FF31EB97E2C00AB818C /* ID Verified Filled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ID Verified Filled.png"; sourceTree = "<group>"; };
+		DA823FF41EB97E2C00AB818C /* Conference.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Conference.png; sourceTree = "<group>"; };
+		DA823FF51EB97E2C00AB818C /* Conference Filled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Conference Filled.png"; sourceTree = "<group>"; };
+		DA823FF61EB97E2C00AB818C /* Settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Settings.png; sourceTree = "<group>"; };
+		DA823FF71EB97E2C00AB818C /* Settings Filled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Settings Filled.png"; sourceTree = "<group>"; };
 		DA9403A41EB1F46100092DCC /* PersonListNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonListNavigationController.swift; sourceTree = "<group>"; };
 		DA9403A61EB1F4ED00092DCC /* PersonListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonListTableViewController.swift; sourceTree = "<group>"; };
 		DA9403A81EB1F53500092DCC /* PersonListDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonListDetailViewController.swift; sourceTree = "<group>"; };
@@ -266,6 +278,12 @@
 		DAFCD34D1EB097E80055DAD5 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				DA823FF21EB97E2C00AB818C /* ID Verified.png */,
+				DA823FF31EB97E2C00AB818C /* ID Verified Filled.png */,
+				DA823FF41EB97E2C00AB818C /* Conference.png */,
+				DA823FF51EB97E2C00AB818C /* Conference Filled.png */,
+				DA823FF61EB97E2C00AB818C /* Settings.png */,
+				DA823FF71EB97E2C00AB818C /* Settings Filled.png */,
 				DAFCD34E1EB098060055DAD5 /* Fingerprint.png */,
 				DAFCD34F1EB098060055DAD5 /* FireWarden.jpg */,
 			);
@@ -382,11 +400,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA823FFC1EB97E2C00AB818C /* Settings.png in Resources */,
 				DA30D2E01EB890EA00D6ACAF /* Icon-App-76x76@2x.png in Resources */,
 				DA30D2DB1EB890EA00D6ACAF /* Icon-App-60x60@2x.png in Resources */,
+				DA823FFA1EB97E2C00AB818C /* Conference.png in Resources */,
 				DA30D2D31EB890EA00D6ACAF /* Icon-App-29x29@2x.png in Resources */,
 				DA30D2DA1EB890EA00D6ACAF /* Icon-App-60x60@1x.png in Resources */,
 				DA30D2E21EB890EA00D6ACAF /* Icon-App-83.5x83.5@2x.png in Resources */,
+				DA823FFD1EB97E2C00AB818C /* Settings Filled.png in Resources */,
 				DAFCD3511EB098060055DAD5 /* FireWarden.jpg in Resources */,
 				DA30D2D81EB890EA00D6ACAF /* Icon-App-57x57@1x.png in Resources */,
 				DA30D2D01EB890EA00D6ACAF /* Icon-App-20x20@2x.png in Resources */,
@@ -397,10 +418,13 @@
 				DA30D2DC1EB890EA00D6ACAF /* Icon-App-60x60@3x.png in Resources */,
 				DA30D2D91EB890EA00D6ACAF /* Icon-App-57x57@2x.png in Resources */,
 				DA30D2D11EB890EA00D6ACAF /* Icon-App-20x20@3x.png in Resources */,
+				DA823FF81EB97E2C00AB818C /* ID Verified.png in Resources */,
 				DAD752371EADAA7D0018FA60 /* Assets.xcassets in Resources */,
 				DA30D2EA1EB890F700D6ACAF /* iTunesArtwork@3x.png in Resources */,
 				DA30D2E31EB890EA00D6ACAF /* Icon-Small-50x50@1x.png in Resources */,
+				DA823FFB1EB97E2C00AB818C /* Conference Filled.png in Resources */,
 				DA30D2DE1EB890EA00D6ACAF /* Icon-App-72x72@2x.png in Resources */,
+				DA823FF91EB97E2C00AB818C /* ID Verified Filled.png in Resources */,
 				DAFCD3501EB098060055DAD5 /* Fingerprint.png in Resources */,
 				DA30D2E91EB890F700D6ACAF /* iTunesArtwork@2x.png in Resources */,
 				DAD752351EADAA7D0018FA60 /* Main.storyboard in Resources */,

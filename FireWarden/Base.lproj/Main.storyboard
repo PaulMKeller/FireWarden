@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eeD-rw-5iL" id="36b-co-nVR">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Persons Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HEU-hc-jvs">
@@ -144,7 +144,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pAc-Cf-ksK" id="5XM-yA-9gC">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="18/04/2017: Republic Plaza, Level 26, SG" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bSH-ao-p6n">
@@ -223,7 +223,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="vxk-l0-Uwu" kind="showDetail" id="rQr-tO-IQQ"/>
+                                    <segue destination="vxk-l0-Uwu" kind="show" action="showDetailViewController:sender:" id="rQr-tO-IQQ"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -337,7 +337,7 @@
             </objects>
             <point key="canvasLocation" x="3660" y="1004"/>
         </scene>
-        <!--Person List Detail View Controller-->
+        <!--Person Details-->
         <scene sceneID="H79-xP-1TH">
             <objects>
                 <viewController id="vxk-l0-Uwu" customClass="PersonListDetailViewController" customModule="FireWarden" customModuleProvider="target" sceneMemberID="viewController">
@@ -350,6 +350,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Person Details" id="bpp-C2-83L">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="zWn-Ej-YUE"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7r0-fT-vos" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -359,7 +362,7 @@
         <scene sceneID="5mZ-G5-Wnd">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="SZJ-1T-Z1B" customClass="RegisterNavigationController" customModule="FireWarden" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Register" id="dBu-cz-5pJ"/>
+                    <tabBarItem key="tabBarItem" title="Register" image="ID Verified.png" selectedImage="ID Verified Filled.png" id="dBu-cz-5pJ"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="2sy-6S-gtP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -378,7 +381,7 @@
         <scene sceneID="FNe-nX-Q6D">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7aY-Kf-ESV" customClass="PersonListNavigationController" customModule="FireWarden" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Person List" id="uyG-jA-JCb"/>
+                    <tabBarItem key="tabBarItem" title="Person List" image="Conference.png" selectedImage="Conference Filled.png" id="uyG-jA-JCb"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="5yh-4i-tVM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -397,7 +400,7 @@
         <scene sceneID="dI7-gw-huk">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7en-2j-d4J" customClass="SettingsNavigationController" customModule="FireWarden" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Settings" id="Ufe-Cf-dHR"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="Settings.png" selectedImage="Settings Filled.png" id="Ufe-Cf-dHR"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="CJp-vN-rX1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -414,7 +417,13 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Conference Filled.png" width="30" height="30"/>
+        <image name="Conference.png" width="30" height="30"/>
         <image name="Fingerprint.png" width="1280" height="960"/>
         <image name="FireWarden.jpg" width="134" height="134"/>
+        <image name="ID Verified Filled.png" width="30" height="30"/>
+        <image name="ID Verified.png" width="30" height="30"/>
+        <image name="Settings Filled.png" width="30" height="30"/>
+        <image name="Settings.png" width="30" height="30"/>
     </resources>
 </document>
