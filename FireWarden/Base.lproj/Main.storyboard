@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eeD-rw-5iL" id="36b-co-nVR">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Persons Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HEU-hc-jvs">
@@ -90,18 +90,29 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fja-xf-TP0">
+                                <rect key="frame" x="132" y="213" width="111" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Use TouchID"/>
+                                <connections>
+                                    <action selector="useTouchID:" destination="wV5-ke-SOf" eventType="touchUpInside" id="JXE-ek-FCl"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b3o-cY-h2X">
+                                <rect key="frame" x="16" y="408" width="343" height="160"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="1" green="0.14070197662063122" blue="0.12492542735998502" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vvP-1f-8Eh">
-                                <rect key="frame" x="164" y="155" width="46" height="30"/>
+                                <rect key="frame" x="164" y="168" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Login"/>
                                 <connections>
-                                    <segue destination="49e-Tb-3d3" kind="presentation" id="ACy-BH-o2f"/>
+                                    <action selector="loginAttempt:" destination="wV5-ke-SOf" eventType="touchUpInside" id="nox-u2-ycF"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Fingerprint.png" translatesAutoresizingMaskIntoConstraints="NO" id="lrY-bo-SmF">
-                                <rect key="frame" x="147" y="193" width="81" height="65"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -109,6 +120,11 @@
                             <constraint firstItem="q2y-gO-VOV" firstAttribute="centerY" secondItem="5Gb-JO-bBI" secondAttribute="centerY" id="rfO-KA-lup"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="errorText" destination="b3o-cY-h2X" id="MoO-46-2XB"/>
+                        <outlet property="loginName" destination="tnD-Yz-Vfh" id="yIr-UB-rLE"/>
+                        <outlet property="password" destination="Cz1-Nn-nEh" id="VzK-O6-77p"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pWv-eb-ta7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -147,7 +163,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pAc-Cf-ksK" id="5XM-yA-9gC">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="18/04/2017: Republic Plaza, Level 26, SG" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bSH-ao-p6n">
@@ -478,7 +494,6 @@
     <resources>
         <image name="Conference Filled.png" width="30" height="30"/>
         <image name="Conference.png" width="30" height="30"/>
-        <image name="Fingerprint.png" width="1280" height="960"/>
         <image name="FireWarden.jpg" width="134" height="134"/>
         <image name="ID Verified Filled.png" width="30" height="30"/>
         <image name="ID Verified.png" width="30" height="30"/>
