@@ -83,11 +83,16 @@ class LoginViewController: UIViewController {
                 self.errorText.text = "ERROR: Check entries and try again."
             } else {
                 //self.activityView.stopAnimating()
-                self.errorText.text = "Details returned..."
+                //self.errorText.text = "Details returned..."
+                self.validateLogin(loginJson: dataString!)
             }
         })
         
         task.resume()
+        
+    }
+    
+    func validateLogin(loginJson:NSString) {
         
     }
 

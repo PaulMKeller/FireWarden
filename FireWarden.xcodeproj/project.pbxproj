@@ -163,6 +163,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DA1130251EC451F7007059C8 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
 		DA30D2B81EB8625200D6ACAF /* Icons */ = {
 			isa = PBXGroup;
 			children = (
@@ -219,6 +226,7 @@
 		DAD7522C1EADAA7C0018FA60 /* FireWarden */ = {
 			isa = PBXGroup;
 			children = (
+				DA1130251EC451F7007059C8 /* Classes */,
 				DA30D2B81EB8625200D6ACAF /* Icons */,
 				DAFCD34D1EB097E80055DAD5 /* Images */,
 				DAFCD3431EB072DE0055DAD5 /* ViewControllers */,
