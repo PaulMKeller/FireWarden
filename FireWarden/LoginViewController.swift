@@ -94,6 +94,8 @@ class LoginViewController: UIViewController {
     
     func validateLogin(loginJson:NSString) {
         
+        //Parse the JSON into the login object to be passed around where necessary
+        
     }
 
 }
