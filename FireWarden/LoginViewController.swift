@@ -52,6 +52,54 @@ class LoginViewController: UIViewController {
  */
     
     func submitDetails(){
+        let url = URL(string: "http://www.gratuityp.com/pk/GetLoginDetails.php")
+        
+        let task = URLSession.shared.dataTask(with: url!) { (data, response, error) in
+            if error != nil
+            {
+                print(error!)
+            }
+            else
+            {
+                if let content=data
+                {
+                    do
+                    {
+                        let myJson = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
+                        print(myJson)
+                        var loginRecord:Login?
+                        
+                        if let loginID = myJson["LoginID"] as? Int32
+                        {
+                            loginRecord?.loginID = loginID
+                        }
+                        
+                        if let loginName = myJson["LoginName"] as? String
+                        {
+                            loginRecord?.loginName = loginName
+                        }
+                        
+                        if let password = myJson["Password"] as? String
+                        {
+                            loginRecord?.password = password
+                        }
+                        
+                        print(loginRecord)
+                    }
+                    catch
+                    {
+                        //print(error)
+                    }
+                }
+            }
+        }
+        
+        task.resume()
+    }
+   
+    
+/* FIRST ATTEMPT
+    func submitDetails(){
         
         self.view.endEditing(true)
         self.errorText.text = ""
@@ -84,7 +132,7 @@ class LoginViewController: UIViewController {
             } else {
                 //self.activityView.stopAnimating()
                 //self.errorText.text = "Details returned..."
-                self.validateLogin(loginJson: dataString!)
+                self.validateLogin(loginJson: data!)
             }
         })
         
@@ -92,10 +140,12 @@ class LoginViewController: UIViewController {
         
     }
     
-    func validateLogin(loginJson:NSString) {
+    func validateLogin(loginJson:Data) {
         
         //Parse the JSON into the login object to be passed around where necessary
+        let json = try? JSONSerialization.jsonObject(with: loginJson, options: [])
         
     }
+ FIRST ATTEMPT*/
 
 }

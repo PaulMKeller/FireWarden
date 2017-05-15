@@ -9,11 +9,13 @@
 import Foundation
 
 class Login {
-    var loginName: String
-    var password: String
-    var adminRole: String
+    var loginID: Int32 = 0
+    var loginName: String = ""
+    var password: String = ""
+    var adminRole: String = ""
     
-    init(loginName: String, password: String, adminRole: String) {
+    init(loginID: Int32, loginName: String, password: String, adminRole: String) {
+        self.loginID = loginID
         self.loginName = loginName
         self.password = password
         self.adminRole = adminRole

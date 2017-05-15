@@ -18,7 +18,8 @@ if( $conn === false ) {
  
 /* TSQL Query */
 $tsql = "EXEC sp_Login_Get @LoginName=?";
-$getLogin = $_POST['LoginName'];
+/*$getLogin = $_POST['LoginName'];*/
+$getLogin = 'Paul';
 $params = array($getLogin);
 $stmt = sqlsrv_query( $conn, $tsql, $params);
  
