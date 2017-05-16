@@ -124,6 +124,7 @@
                         <outlet property="errorText" destination="b3o-cY-h2X" id="MoO-46-2XB"/>
                         <outlet property="loginName" destination="tnD-Yz-Vfh" id="yIr-UB-rLE"/>
                         <outlet property="password" destination="Cz1-Nn-nEh" id="VzK-O6-77p"/>
+                        <segue destination="49e-Tb-3d3" kind="show" identifier="loginSegue" id="67b-ND-VgT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pWv-eb-ta7" userLabel="First Responder" sceneMemberID="firstResponder"/>

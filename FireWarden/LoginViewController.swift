@@ -35,23 +35,25 @@ class LoginViewController: UIViewController {
 
     
     // MARK: - Navigation
-/*
+
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         
-        if shouldPerformSegue(withIdentifier: "loginSegue", sender: self) == false {
-            return
-        }
+        //if shouldPerformSegue(withIdentifier: "loginSegue", sender: self) == false {
+        //    return
+        //}
+        
+
     }
-    
+
+/*
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         return submitDetails()
     }
- */
-    
-    func submitDetails(){
+*/
+    func submitDetails() {
         let url = URL(string: "http://www.gratuityp.com/pk/GetLoginDetails.php")
         
         let task = URLSession.shared.dataTask(with: url!) { (data, response, error) in
@@ -67,24 +69,13 @@ class LoginViewController: UIViewController {
                     {
                         let myJson = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
                         print(myJson)
-                        var loginRecord:Login?
                         
-                        if let loginID = myJson["LoginID"] as? Int32
-                        {
-                            loginRecord?.loginID = loginID
+                        let loginArray = myJson[0] as! NSDictionary
+                        let loginDetails = Login(loginID:loginArray["LoginID"] as! Int32, loginName:loginArray["LoginName"] as! String,password:loginArray["Password"] as! String,adminRole:"")
+                        
+                        if self.validLoginDetails(loginRecord: loginDetails) {
+                            self.performSegue(withIdentifier: "loginSegue", sender: self)
                         }
-                        
-                        if let loginName = myJson["LoginName"] as? String
-                        {
-                            loginRecord?.loginName = loginName
-                        }
-                        
-                        if let password = myJson["Password"] as? String
-                        {
-                            loginRecord?.password = password
-                        }
-                        
-                        print(loginRecord)
                     }
                     catch
                     {
@@ -96,56 +87,16 @@ class LoginViewController: UIViewController {
         
         task.resume()
     }
-   
     
-/* FIRST ATTEMPT
-    func submitDetails(){
+    func validLoginDetails(loginRecord: Login) -> Bool {
         
-        self.view.endEditing(true)
-        self.errorText.text = ""
-        
-        
-        let url:URL = URL(string: "http://www.gratuityp.com/pk/GetLoginDetails.php")!
-        let session = URLSession.shared
-        
-        let request = NSMutableURLRequest(url: url)
-        request.httpMethod = "POST"
-        request.cachePolicy = NSURLRequest.CachePolicy.reloadIgnoringCacheData
-        
-        let paramString = "LoginName=" + loginName.text!
-        
-        request.httpBody = paramString.data(using: String.Encoding.utf8)
-        
-        let task = session.dataTask(with: request as URLRequest, completionHandler: {
-            (data, response, error) in
-            
-            guard let _:Data = data, let _:URLResponse = response, error == nil else {
-                print("error")
-                return
-            }
-            
-            let dataString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
-            //print(dataString)
-            if dataString!.lowercased.range(of: "error") != nil {
-                //self.activityView.stopAnimating()
-                self.errorText.text = "ERROR: Check entries and try again."
-            } else {
-                //self.activityView.stopAnimating()
-                //self.errorText.text = "Details returned..."
-                self.validateLogin(loginJson: data!)
-            }
-        })
-        
-        task.resume()
+        if loginRecord.password==self.password.text {
+            return true
+        }
+        else
+        {
+            return false
+        }
         
     }
-    
-    func validateLogin(loginJson:Data) {
-        
-        //Parse the JSON into the login object to be passed around where necessary
-        let json = try? JSONSerialization.jsonObject(with: loginJson, options: [])
-        
-    }
- FIRST ATTEMPT*/
-
 }
