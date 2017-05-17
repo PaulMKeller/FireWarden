@@ -63,13 +63,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     func submitDetails() {
         self.activityIndicator.startAnimating()
         let url = URL(string: "http://www.gratuityp.com/pk/GetLoginDetails.php")
-        
         var request = URLRequest(url: url!)
         request.httpMethod = "POST"
-        let postString = "LoginName='Paul'&Password='Password1'"
+        let postString = "LoginName=" + loginName.text!
         request.httpBody = postString.data(using: .utf8)
-        //let task = URLSession.shared.dataTask(with: url!) { (data, response, error) in
-        
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             if error != nil
             {
@@ -82,22 +79,34 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     do
                     {
                         let myJson = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
-                        let loginArray = myJson[0] as! NSDictionary
-                        let loginDetails = Login(loginID:loginArray["LoginID"] as! Int32, loginName:loginArray["LoginName"] as! String,password:loginArray["Password"] as! String,adminRole:"")
-                        
-                        if self.validLoginDetails(loginRecord: loginDetails) {
-                            DispatchQueue.main.async(execute: {
-                                self.activityIndicator.stopAnimating()
-                                self.performSegue(withIdentifier: "loginSegue", sender: self)
-                            })
+                        print(myJson)
+                        if myJson.count > 0
+                        {
+                            let loginArray = myJson[0] as! NSDictionary
+                            let loginDetails = Login(loginID:loginArray["LoginID"] as! Int32, loginName:loginArray["LoginName"] as! String,password:loginArray["Password"] as! String,adminRole:"")
+                            
+                            if self.validLoginDetails(loginRecord: loginDetails) {
+                                DispatchQueue.main.async(execute: {
+                                    self.activityIndicator.stopAnimating()
+                                    self.performSegue(withIdentifier: "loginSegue", sender: self)
+                                })
+                            }
+                            else
+                            {
+                                DispatchQueue.main.async(execute: {
+                                    self.activityIndicator.stopAnimating()
+                                    self.errorText.text = "Login Name or Password failure."
+                                })
+                            }
                         }
                         else
                         {
                             DispatchQueue.main.async(execute: {
                                 self.activityIndicator.stopAnimating()
-                                self.errorText.text = "Login Name or Password failure."
+                                self.errorText.text = "Invalid Credentials Supplied"
                             })
                         }
+                        
                     }
                     catch
                     {
