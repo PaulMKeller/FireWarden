@@ -8,12 +8,14 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var loginName: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var errorText: UILabel!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBAction func loginAttempt(_ sender: Any) {
+        self.errorText.text = ""
         submitDetails()
     }
     
@@ -25,6 +27,9 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.activityIndicator.stopAnimating()
+        loginName.delegate = self
+        password.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -35,7 +40,7 @@ class LoginViewController: UIViewController {
 
     
     // MARK: - Navigation
-
+/*
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
@@ -48,15 +53,24 @@ class LoginViewController: UIViewController {
 
     }
 
-/*
+
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         return submitDetails()
     }
 */
+    
+
     func submitDetails() {
+        self.activityIndicator.startAnimating()
         let url = URL(string: "http://www.gratuityp.com/pk/GetLoginDetails.php")
         
-        let task = URLSession.shared.dataTask(with: url!) { (data, response, error) in
+        var request = URLRequest(url: url!)
+        request.httpMethod = "POST"
+        let postString = "LoginName='Paul'&Password='Password1'"
+        request.httpBody = postString.data(using: .utf8)
+        //let task = URLSession.shared.dataTask(with: url!) { (data, response, error) in
+        
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             if error != nil
             {
                 print(error!)
@@ -68,18 +82,26 @@ class LoginViewController: UIViewController {
                     do
                     {
                         let myJson = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
-                        print(myJson)
-                        
                         let loginArray = myJson[0] as! NSDictionary
                         let loginDetails = Login(loginID:loginArray["LoginID"] as! Int32, loginName:loginArray["LoginName"] as! String,password:loginArray["Password"] as! String,adminRole:"")
                         
                         if self.validLoginDetails(loginRecord: loginDetails) {
-                            self.performSegue(withIdentifier: "loginSegue", sender: self)
+                            DispatchQueue.main.async(execute: {
+                                self.activityIndicator.stopAnimating()
+                                self.performSegue(withIdentifier: "loginSegue", sender: self)
+                            })
+                        }
+                        else
+                        {
+                            DispatchQueue.main.async(execute: {
+                                self.activityIndicator.stopAnimating()
+                                self.errorText.text = "Login Name or Password failure."
+                            })
                         }
                     }
                     catch
                     {
-                        //print(error)
+                        print(error)
                     }
                 }
             }
