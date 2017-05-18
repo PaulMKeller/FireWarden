@@ -83,7 +83,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                         if myJson.count > 0
                         {
                             let loginArray = myJson[0] as! NSDictionary
-                            let loginDetails = Login(loginID:loginArray["LoginID"] as! Int32, loginName:loginArray["LoginName"] as! String,password:loginArray["Password"] as! String,adminRole:"")
+                            let accessRights = myJson[1] as! NSDictionary
+                            print(accessRights)
+                            let loginDetails = Login(loginID:loginArray["LoginID"] as! Int32, loginName:loginArray["LoginName"] as! String,password:loginArray["Password"] as! String,adminRole:accessRights)
                             
                             if self.validLoginDetails(loginRecord: loginDetails) {
                                 DispatchQueue.main.async(execute: {

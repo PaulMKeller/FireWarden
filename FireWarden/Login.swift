@@ -12,9 +12,9 @@ class Login {
     var loginID: Int32 = 0
     var loginName: String = ""
     var password: String = ""
-    var adminRole: String = ""
+    var adminRole: NSDictionary
     
-    init(loginID: Int32, loginName: String, password: String, adminRole: String) {
+    init(loginID: Int32, loginName: String, password: String, adminRole: NSDictionary) {
         self.loginID = loginID
         self.loginName = loginName
         self.password = password
