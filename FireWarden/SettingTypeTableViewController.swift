@@ -10,7 +10,7 @@ import UIKit
 
 class SettingTypeTableViewController: UITableViewController {
     
-    var locationsArray = [String]()
+    var locationsArray = [Location]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,14 +38,18 @@ class SettingTypeTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 4
+        return self.locationsArray.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SettingTypeCell", for: indexPath)
 
         // Configure the cell...
-
+        let currentLocation = self.locationsArray[indexPath.row]
+        
+        cell.textLabel?.text = currentLocation.locationName + " - " + currentLocation.floor
+        cell.detailTextLabel?.text = currentLocation.country
+        
         return cell
     }
     
@@ -71,8 +75,18 @@ class SettingTypeTableViewController: UITableViewController {
                         print(myJson)
                         if myJson.count > 0
                         {
-                            let locationArray = myJson[0] as! NSDictionary
-                            print(locationArray)
+                            // DON'T KNOW WHY I CAN'T GET THIS TO FUCKING WORK!
+                            var locationJson = myJson[0] as! NSDictionary
+                            var locationDetails = Location(locationID: locationJson["LocationID"] as! Int32, locationName: locationJson["LocationName"] as! String, floor: locationJson["Floor"] as! String, countryID: locationJson["CountryID"] as! Int32, country: locationJson["Country"] as! String)
+                            self.locationsArray.append(locationDetails)
+                            
+                            locationJson = myJson[1] as! NSDictionary
+                            locationDetails = Location(locationID: locationJson["LocationID"] as! Int32, locationName: locationJson["LocationName"] as! String, floor: locationJson["Floor"] as! String, countryID: locationJson["CountryID"] as! Int32, country: locationJson["Country"] as! String)
+                            self.locationsArray.append(locationDetails)
+                            
+                            locationJson = myJson[2] as! NSDictionary
+                            locationDetails = Location(locationID: locationJson["LocationID"] as! Int32, locationName: locationJson["LocationName"] as! String, floor: locationJson["Floor"] as! String, countryID: locationJson["CountryID"] as! Int32, country: locationJson["Country"] as! String)
+                            self.locationsArray.append(locationDetails)
                             
                             /*
                             
