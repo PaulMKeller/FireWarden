@@ -36,6 +36,9 @@
 		DA30D2E81EB890F700D6ACAF /* iTunesArtwork@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA30D2E51EB890F700D6ACAF /* iTunesArtwork@1x.png */; };
 		DA30D2E91EB890F700D6ACAF /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA30D2E61EB890F700D6ACAF /* iTunesArtwork@2x.png */; };
 		DA30D2EA1EB890F700D6ACAF /* iTunesArtwork@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA30D2E71EB890F700D6ACAF /* iTunesArtwork@3x.png */; };
+		DA402D971ECECBB900C3E835 /* PeopleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA402D961ECECBB900C3E835 /* PeopleTableViewController.swift */; };
+		DA402D991ECECC0F00C3E835 /* WardensTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA402D981ECECC0F00C3E835 /* WardensTableViewController.swift */; };
+		DA402D9B1ECED8F500C3E835 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA402D9A1ECED8F500C3E835 /* Location.swift */; };
 		DA744D591ECC2B9300521EB8 /* Backlog.rtf in Resources */ = {isa = PBXBuildFile; fileRef = DA744D581ECC2B9300521EB8 /* Backlog.rtf */; };
 		DA823FF81EB97E2C00AB818C /* ID Verified.png in Resources */ = {isa = PBXBuildFile; fileRef = DA823FF21EB97E2C00AB818C /* ID Verified.png */; };
 		DA823FF91EB97E2C00AB818C /* ID Verified Filled.png in Resources */ = {isa = PBXBuildFile; fileRef = DA823FF31EB97E2C00AB818C /* ID Verified Filled.png */; };
@@ -109,6 +112,9 @@
 		DA30D2E51EB890F700D6ACAF /* iTunesArtwork@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@1x.png"; sourceTree = "<group>"; };
 		DA30D2E61EB890F700D6ACAF /* iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@2x.png"; sourceTree = "<group>"; };
 		DA30D2E71EB890F700D6ACAF /* iTunesArtwork@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@3x.png"; sourceTree = "<group>"; };
+		DA402D961ECECBB900C3E835 /* PeopleTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeopleTableViewController.swift; sourceTree = "<group>"; };
+		DA402D981ECECC0F00C3E835 /* WardensTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WardensTableViewController.swift; sourceTree = "<group>"; };
+		DA402D9A1ECED8F500C3E835 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		DA744D581ECC2B9300521EB8 /* Backlog.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = Backlog.rtf; sourceTree = "<group>"; };
 		DA823FF21EB97E2C00AB818C /* ID Verified.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ID Verified.png"; sourceTree = "<group>"; };
 		DA823FF31EB97E2C00AB818C /* ID Verified Filled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ID Verified Filled.png"; sourceTree = "<group>"; };
@@ -171,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				DAD1AD651EC5945000E9834C /* Login.swift */,
+				DA402D9A1ECED8F500C3E835 /* Location.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -285,6 +292,8 @@
 				DA30D2B21EB8350D00D6ACAF /* SettingsTableViewController.swift */,
 				DA30D2B41EB8364200D6ACAF /* SettingTypeTableViewController.swift */,
 				DA30D2B61EB8370D00D6ACAF /* SettingDetailsViewController.swift */,
+				DA402D961ECECBB900C3E835 /* PeopleTableViewController.swift */,
+				DA402D981ECECC0F00C3E835 /* WardensTableViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -477,6 +486,8 @@
 			files = (
 				DAFCD34A1EB082390055DAD5 /* RegisterTableViewController.swift in Sources */,
 				DA30D2B51EB8364200D6ACAF /* SettingTypeTableViewController.swift in Sources */,
+				DA402D9B1ECED8F500C3E835 /* Location.swift in Sources */,
+				DA402D991ECECC0F00C3E835 /* WardensTableViewController.swift in Sources */,
 				DAD1AD661EC5945000E9834C /* Login.swift in Sources */,
 				DAFCD3471EB081E00055DAD5 /* RegisterNavigationController.swift in Sources */,
 				DAFCD34C1EB0838B0055DAD5 /* PersonRegistrationTableViewController.swift in Sources */,
@@ -487,6 +498,7 @@
 				DA30D2B71EB8370D00D6ACAF /* SettingDetailsViewController.swift in Sources */,
 				DAFCD3451EB073160055DAD5 /* LoginViewController.swift in Sources */,
 				DA9403A51EB1F46100092DCC /* PersonListNavigationController.swift in Sources */,
+				DA402D971ECECBB900C3E835 /* PeopleTableViewController.swift in Sources */,
 				DAD7522E1EADAA7D0018FA60 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,16 +1,14 @@
 //
-//  SettingsTableViewController.swift
+//  WardensTableViewController.swift
 //  FireWarden
 //
-//  Created by Paul Keller on 2/5/17.
+//  Created by Paul Keller on 19/5/17.
 //  Copyright © 2017 PlanetKGames. All rights reserved.
 //
 
 import UIKit
 
-class SettingsTableViewController: UITableViewController {
-    
-    var settingsList = [String]()
+class WardensTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,12 +18,6 @@ class SettingsTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        
-        settingsList.append("Locations")
-        settingsList.append("People")
-        settingsList.append("Wardens")
-        settingsList.append("General")
-        settingsList.append("Logins")
     }
 
     override func didReceiveMemoryWarning() {
@@ -42,15 +34,14 @@ class SettingsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return settingsList.count
+        return 4
     }
 
-    
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: settingsList[indexPath.row].lowercased() + "Cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "wardenIdentifier", for: indexPath)
 
         // Configure the cell...
-        // cell.textLabel?.text = settingsList[indexPath.row]
 
         return cell
     }

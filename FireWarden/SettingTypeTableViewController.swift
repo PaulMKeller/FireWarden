@@ -9,6 +9,8 @@
 import UIKit
 
 class SettingTypeTableViewController: UITableViewController {
+    
+    var locationsArray = [String]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +20,8 @@ class SettingTypeTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        getLocationData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -43,6 +47,65 @@ class SettingTypeTableViewController: UITableViewController {
         // Configure the cell...
 
         return cell
+    }
+    
+    func getLocationData() {
+        //self.activityIndicator.startAnimating()
+        let url = URL(string: "http://www.gratuityp.com/pk/GetData.php")
+        var request = URLRequest(url: url!)
+        request.httpMethod = "POST"
+        let postString = "ScriptName=sp_Location_GetList&ParamString=''"
+        request.httpBody = postString.data(using: .utf8)
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if error != nil
+            {
+                print(error!)
+            }
+            else
+            {
+                if let content=data
+                {
+                    do
+                    {
+                        let myJson = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
+                        print(myJson)
+                        if myJson.count > 0
+                        {
+                            let locationArray = myJson[0] as! NSDictionary
+                            print(locationArray)
+                            
+                            /*
+                            
+                            NEED TO LOOP THROUGH THE LOCATIONS AND SETUP THE ARRAY
+                             
+                            let locationDetails = Location(locationID: locationArray["LocationID"] as! Int32, locationName: locationArray["Location"] as! String, floor: locationArray["Floor"] as! String, countryID: locationArray["CountryID"] as! Int32, country: locationArray["Country"] as! String)
+                            
+                            DispatchQueue.main.async(execute: {
+                                //self.activityIndicator.stopAnimating()
+                                //self.errorText.text = "Login Name or Password failure."
+                                print("Successful Location Retrieval")
+                            })
+                            */
+                        }
+                        else
+                        {
+                            DispatchQueue.main.async(execute: {
+                                //self.activityIndicator.stopAnimating()
+                                //self.errorText.text = "Invalid Credentials Supplied"
+                                print("Un-Successful Location Retrieval")
+                            })
+                        }
+                        
+                    }
+                    catch
+                    {
+                        print(error)
+                    }
+                }
+            }
+        }
+        
+        task.resume()
     }
 
     /*
