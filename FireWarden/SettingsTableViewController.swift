@@ -11,6 +11,7 @@ import UIKit
 class SettingsTableViewController: UITableViewController {
     
     var settingsList = [String]()
+    var locationsArray = [Location]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,7 +61,7 @@ class SettingsTableViewController: UITableViewController {
         switch indexPath.row {
         case 0:
             //call locations code
-            prepareForLocationSegue()
+            prepareForLocationSegue(tableView: tableView)
         case 1:
             //call People code
             prepareForPeopleSegue()
@@ -79,10 +80,9 @@ class SettingsTableViewController: UITableViewController {
         }
     }
     
-    func prepareForLocationSegue() {
-        let waitingView = showWaitingView()
+    func prepareForLocationSegue(tableView: UITableView) {
+        let waitingView = showWaitingView(tableView: tableView)
         
-        var locationsArray = [Location]()
         let url = URL(string: "http://www.gratuityp.com/pk/GetData.php")
         var request = URLRequest(url: url!)
         request.httpMethod = "POST"
@@ -108,11 +108,12 @@ class SettingsTableViewController: UITableViewController {
                         print(myJson)
                         if myJson.count > 0
                         {
+                            self.locationsArray.removeAll()
                             for item in myJson {
                                 let obj = item as! NSDictionary
                                 let locationDetails = Location(locationID: obj["LocationID"] as! Int32, locationName: obj["LocationName"] as! String, floor: obj["Floor"] as! String, countryID: obj["CountryID"] as! Int32, country: obj["Country"] as! String)
                                 print(locationDetails)
-                                locationsArray.append(locationDetails)
+                                self.locationsArray.append(locationDetails)
                             }
                             DispatchQueue.main.async(execute: {
                                 //self.activityIndicator.stopAnimating()
@@ -120,7 +121,6 @@ class SettingsTableViewController: UITableViewController {
                                 print("Successful Location Retrieval")
                                 
                                 //Pass the locations array to the next view
-                                
                                 self.performSegue(withIdentifier: "locationsSegue", sender: self)
                                 
                             })
@@ -144,6 +144,21 @@ class SettingsTableViewController: UITableViewController {
         }
         
         task.resume()
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "locationsSegue" {
+            let nextScene = segue.destination as! SettingTypeTableViewController
+            nextScene.locationsArray = self.locationsArray
+        } else if segue.identifier == "peopleSegue" {
+            // Do people
+        } else if segue.identifier == "wardensSegue" {
+            // Do Wardens
+        } else if segue.identifier == "generalSegue" {
+            // Do general
+        } else if segue.identifier == "loginsSegue" {
+            // Do logins
         }
     }
     
@@ -163,23 +178,23 @@ class SettingsTableViewController: UITableViewController {
         
     }
 
-private func showWaitingView() -> UIView {
+private func showWaitingView(tableView: UITableView) -> UIView {
     let effectView = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
     effectView.translatesAutoresizingMaskIntoConstraints = false
-    view.addSubview(effectView)
+    tableView.addSubview(effectView)
     NSLayoutConstraint.activate([
-        effectView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-        effectView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-        effectView.topAnchor.constraint(equalTo: view.topAnchor),
-        effectView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        effectView.leadingAnchor.constraint(equalTo: tableView.leadingAnchor),
+        effectView.trailingAnchor.constraint(equalTo: tableView.trailingAnchor),
+        effectView.topAnchor.constraint(equalTo: tableView.topAnchor),
+        effectView.bottomAnchor.constraint(equalTo: tableView.bottomAnchor)
         ])
     
     let spinner = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
     effectView.addSubview(spinner)
     spinner.translatesAutoresizingMaskIntoConstraints = false
-    NSLayoutConstraint.activateConstraints([
-        spinner.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-        spinner.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+    NSLayoutConstraint.activate([
+        spinner.centerXAnchor.constraint(equalTo: tableView.centerXAnchor),
+        spinner.centerYAnchor.constraint(equalTo: tableView.centerYAnchor)
         ])
     
     spinner.startAnimating()

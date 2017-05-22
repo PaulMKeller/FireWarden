@@ -21,7 +21,7 @@ class SettingTypeTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
-        getLocationData()
+        //getLocationData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,6 +38,7 @@ class SettingTypeTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
+        print(self.locationsArray.count)
         return self.locationsArray.count
     }
 
@@ -53,6 +54,7 @@ class SettingTypeTableViewController: UITableViewController {
         return cell
     }
     
+    /*
     func getLocationData() {
         //self.activityIndicator.startAnimating()
         let url = URL(string: "http://www.gratuityp.com/pk/GetData.php")
@@ -130,6 +132,8 @@ class SettingTypeTableViewController: UITableViewController {
         
         task.resume()
     }
+ 
+    */
 
     /*
     // Override to support conditional editing of the table view.
