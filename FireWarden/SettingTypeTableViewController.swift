@@ -71,10 +71,18 @@ class SettingTypeTableViewController: UITableViewController {
                 {
                     do
                     {
-                        let myJson = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
+                        let myJson = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as! NSArray
                         print(myJson)
                         if myJson.count > 0
                         {
+                            for item in myJson {
+                                let obj = item as! NSDictionary
+                                let locationDetails = Location(locationID: obj["LocationID"] as! Int32, locationName: obj["LocationName"] as! String, floor: obj["Floor"] as! String, countryID: obj["CountryID"] as! Int32, country: obj["Country"] as! String)
+                                print(locationDetails)
+                                self.locationsArray.append(locationDetails)
+                            }
+                            
+                            /*
                             // DON'T KNOW WHY I CAN'T GET THIS TO FUCKING WORK!
                             var locationJson = myJson[0] as! NSDictionary
                             var locationDetails = Location(locationID: locationJson["LocationID"] as! Int32, locationName: locationJson["LocationName"] as! String, floor: locationJson["Floor"] as! String, countryID: locationJson["CountryID"] as! Int32, country: locationJson["Country"] as! String)
@@ -87,6 +95,7 @@ class SettingTypeTableViewController: UITableViewController {
                             locationJson = myJson[2] as! NSDictionary
                             locationDetails = Location(locationID: locationJson["LocationID"] as! Int32, locationName: locationJson["LocationName"] as! String, floor: locationJson["Floor"] as! String, countryID: locationJson["CountryID"] as! Int32, country: locationJson["Country"] as! String)
                             self.locationsArray.append(locationDetails)
+                            */
                             
                             /*
                             
