@@ -11,6 +11,11 @@ import UIKit
 class SettingTypeTableViewController: UITableViewController {
     
     var locationsArray = [Location]()
+    var currentLocation = Location()
+
+    @IBAction func addTapped(_ sender: Any) {
+        
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,6 +58,23 @@ class SettingTypeTableViewController: UITableViewController {
         
         return cell
     }
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        currentLocation = locationsArray[indexPath.row]
+        self.performSegue(withIdentifier: "locationDetailSegue", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "locationDetailSegue" {
+            let nextScene = segue.destination as! SettingDetailsViewController
+            nextScene.currentLocation = self.currentLocation
+        }
+    }
+    
+    
+    
+    
+    
     
     /*
     func getLocationData() {

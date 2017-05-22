@@ -15,6 +15,14 @@ class Location {
     var countryID: Int32 = 0
     var country: String = ""
     
+    init() {
+        self.locationID = 0
+        self.locationName = ""
+        self.floor = ""
+        self.countryID = 0
+        self.country = ""
+    }
+    
     init(locationID: Int32, locationName: String, floor: String, countryID: Int32, country: String) {
         self.locationID = locationID
         self.locationName = locationName

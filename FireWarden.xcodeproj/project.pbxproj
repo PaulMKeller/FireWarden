@@ -49,6 +49,7 @@
 		DA9403A51EB1F46100092DCC /* PersonListNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9403A41EB1F46100092DCC /* PersonListNavigationController.swift */; };
 		DA9403A71EB1F4ED00092DCC /* PersonListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9403A61EB1F4ED00092DCC /* PersonListTableViewController.swift */; };
 		DA9403A91EB1F53500092DCC /* PersonListDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9403A81EB1F53500092DCC /* PersonListDetailViewController.swift */; };
+		DACDD5F41ED33DA900414373 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACDD5F31ED33DA900414373 /* Country.swift */; };
 		DAD1AD661EC5945000E9834C /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD1AD651EC5945000E9834C /* Login.swift */; };
 		DAD7522E1EADAA7D0018FA60 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD7522D1EADAA7D0018FA60 /* AppDelegate.swift */; };
 		DAD752351EADAA7D0018FA60 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAD752331EADAA7D0018FA60 /* Main.storyboard */; };
@@ -125,6 +126,7 @@
 		DA9403A41EB1F46100092DCC /* PersonListNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonListNavigationController.swift; sourceTree = "<group>"; };
 		DA9403A61EB1F4ED00092DCC /* PersonListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonListTableViewController.swift; sourceTree = "<group>"; };
 		DA9403A81EB1F53500092DCC /* PersonListDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonListDetailViewController.swift; sourceTree = "<group>"; };
+		DACDD5F31ED33DA900414373 /* Country.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		DAD1AD651EC5945000E9834C /* Login.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		DAD7522A1EADAA7C0018FA60 /* FireWarden.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FireWarden.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAD7522D1EADAA7D0018FA60 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 			children = (
 				DAD1AD651EC5945000E9834C /* Login.swift */,
 				DA402D9A1ECED8F500C3E835 /* Location.swift */,
+				DACDD5F31ED33DA900414373 /* Country.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -493,6 +496,7 @@
 				DAFCD34C1EB0838B0055DAD5 /* PersonRegistrationTableViewController.swift in Sources */,
 				DA9403A71EB1F4ED00092DCC /* PersonListTableViewController.swift in Sources */,
 				DA9403A91EB1F53500092DCC /* PersonListDetailViewController.swift in Sources */,
+				DACDD5F41ED33DA900414373 /* Country.swift in Sources */,
 				DA30D2B11EB834E800D6ACAF /* SettingsNavigationController.swift in Sources */,
 				DA30D2B31EB8350D00D6ACAF /* SettingsTableViewController.swift in Sources */,
 				DA30D2B71EB8370D00D6ACAF /* SettingDetailsViewController.swift in Sources */,
