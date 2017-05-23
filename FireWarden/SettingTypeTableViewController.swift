@@ -12,6 +12,7 @@ class SettingTypeTableViewController: UITableViewController {
     
     var locationsArray = [Location]()
     var currentLocation = Location()
+    var countriesArray = [Country]()
 
     @IBAction func addTapped(_ sender: Any) {
         
@@ -61,28 +62,17 @@ class SettingTypeTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         currentLocation = locationsArray[indexPath.row]
-        self.performSegue(withIdentifier: "locationDetailSegue", sender: self)
+        prepareForLocationDetailSegue()
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "locationDetailSegue" {
-            let nextScene = segue.destination as! SettingDetailsViewController
-            nextScene.currentLocation = self.currentLocation
-        }
-    }
-    
-    
-    
-    
-    
-    
-    /*
-    func getLocationData() {
-        //self.activityIndicator.startAnimating()
+    func prepareForLocationDetailSegue() {
+        
+        let waitingView = showWaitingView(tableView: tableView)
+        
         let url = URL(string: "http://www.gratuityp.com/pk/GetData.php")
         var request = URLRequest(url: url!)
         request.httpMethod = "POST"
-        let postString = "ScriptName=sp_Location_GetList&ParamString=''"
+        let postString = "ScriptName=sp_Country_GetList&ParamString=''"
         request.httpBody = postString.data(using: .utf8)
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             if error != nil
@@ -91,6 +81,11 @@ class SettingTypeTableViewController: UITableViewController {
             }
             else
             {
+                defer {
+                    DispatchQueue.main.async {
+                        waitingView.removeFromSuperview()
+                    }
+                }
                 if let content=data
                 {
                     do
@@ -99,40 +94,22 @@ class SettingTypeTableViewController: UITableViewController {
                         print(myJson)
                         if myJson.count > 0
                         {
+                            self.countriesArray.removeAll()
                             for item in myJson {
                                 let obj = item as! NSDictionary
-                                let locationDetails = Location(locationID: obj["LocationID"] as! Int32, locationName: obj["LocationName"] as! String, floor: obj["Floor"] as! String, countryID: obj["CountryID"] as! Int32, country: obj["Country"] as! String)
-                                print(locationDetails)
-                                self.locationsArray.append(locationDetails)
+                                let countryDetails = Country(CountryID: obj["CountryID"] as! Int32, Country: obj["Country"] as! String)
+                                print(countryDetails)
+                                self.countriesArray.append(countryDetails)
                             }
-                            
-                            /*
-                            // DON'T KNOW WHY I CAN'T GET THIS TO FUCKING WORK!
-                            var locationJson = myJson[0] as! NSDictionary
-                            var locationDetails = Location(locationID: locationJson["LocationID"] as! Int32, locationName: locationJson["LocationName"] as! String, floor: locationJson["Floor"] as! String, countryID: locationJson["CountryID"] as! Int32, country: locationJson["Country"] as! String)
-                            self.locationsArray.append(locationDetails)
-                            
-                            locationJson = myJson[1] as! NSDictionary
-                            locationDetails = Location(locationID: locationJson["LocationID"] as! Int32, locationName: locationJson["LocationName"] as! String, floor: locationJson["Floor"] as! String, countryID: locationJson["CountryID"] as! Int32, country: locationJson["Country"] as! String)
-                            self.locationsArray.append(locationDetails)
-                            
-                            locationJson = myJson[2] as! NSDictionary
-                            locationDetails = Location(locationID: locationJson["LocationID"] as! Int32, locationName: locationJson["LocationName"] as! String, floor: locationJson["Floor"] as! String, countryID: locationJson["CountryID"] as! Int32, country: locationJson["Country"] as! String)
-                            self.locationsArray.append(locationDetails)
-                            */
-                            
-                            /*
-                            
-                            NEED TO LOOP THROUGH THE LOCATIONS AND SETUP THE ARRAY
-                             
-                            let locationDetails = Location(locationID: locationArray["LocationID"] as! Int32, locationName: locationArray["Location"] as! String, floor: locationArray["Floor"] as! String, countryID: locationArray["CountryID"] as! Int32, country: locationArray["Country"] as! String)
-                            
                             DispatchQueue.main.async(execute: {
                                 //self.activityIndicator.stopAnimating()
-                                //self.errorText.text = "Login Name or Password failure."
+                                //self.errorText.text = "Invalid Credentials Supplied"
                                 print("Successful Location Retrieval")
+                                
+                                //Pass the locations array to the next view
+                                self.performSegue(withIdentifier: "locationDetailSegue", sender: self)
+                                
                             })
-                            */
                         }
                         else
                         {
@@ -154,8 +131,37 @@ class SettingTypeTableViewController: UITableViewController {
         
         task.resume()
     }
- 
-    */
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "locationDetailSegue" {
+            let nextScene = segue.destination as! SettingDetailsViewController
+            nextScene.currentLocation = self.currentLocation
+            nextScene.countryList = self.countriesArray
+        }
+    }
+    
+    private func showWaitingView(tableView: UITableView) -> UIView {
+        let effectView = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
+        effectView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.addSubview(effectView)
+        NSLayoutConstraint.activate([
+            effectView.leadingAnchor.constraint(equalTo: tableView.leadingAnchor),
+            effectView.trailingAnchor.constraint(equalTo: tableView.trailingAnchor),
+            effectView.topAnchor.constraint(equalTo: tableView.topAnchor),
+            effectView.bottomAnchor.constraint(equalTo: tableView.bottomAnchor)
+            ])
+        
+        let spinner = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+        effectView.addSubview(spinner)
+        spinner.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            spinner.centerXAnchor.constraint(equalTo: tableView.centerXAnchor),
+            spinner.centerYAnchor.constraint(equalTo: tableView.centerYAnchor)
+            ])
+        
+        spinner.startAnimating()
+        return effectView
+    }
 
     /*
     // Override to support conditional editing of the table view.

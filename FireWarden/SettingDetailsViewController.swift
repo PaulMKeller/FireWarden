@@ -20,6 +20,10 @@ class SettingDetailsViewController: UIViewController, UIPickerViewDelegate, UIPi
     var currentLocation = Location()
     var countryList = [Country]()
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -27,10 +31,12 @@ class SettingDetailsViewController: UIViewController, UIPickerViewDelegate, UIPi
         self.countryPicker.delegate = self
         self.countryPicker.dataSource = self
         
+        /*
         let countrySing = Country(CountryID: 1, Country: "Singapore")
         let countryPhil = Country(CountryID: 2, Country: "Phillipines")
         countryList.append(countrySing)
         countryList.append(countryPhil)
+        */
         
         loadLocationData()
     }
@@ -41,17 +47,19 @@ class SettingDetailsViewController: UIViewController, UIPickerViewDelegate, UIPi
     }
     
     func loadLocationData() {
-        /*
-         self.locationID = 0
-         self.locationName = ""
-         self.floor = ""
-         self.countryID = 0
-         self.country = ""
- */
         locationNameText.text = currentLocation.locationName
         floorText.text = currentLocation.floor
+
+        var i:Int
         
-        //Now do the Country Picker
+        i = 0
+        for obj in countryList {
+            if obj.country == currentLocation.country {
+                self.countryPicker.selectRow(i, inComponent: 0, animated: true)
+                break
+            }
+            i += 1
+        }
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
