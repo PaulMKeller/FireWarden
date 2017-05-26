@@ -12,13 +12,14 @@ class SettingDetailsViewController: UIViewController, UIPickerViewDelegate, UIPi
     
     
     @IBAction func saveTapped(_ sender: Any) {
-        
+        saveData()
     }
     @IBOutlet var locationNameText: UITextField!
     @IBOutlet var floorText: UITextField!
     @IBOutlet var countryPicker: UIPickerView!
     var currentLocation = Location()
     var countryList = [Country]()
+    var isExistingRecord = true
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(false, animated: true)
@@ -30,13 +31,6 @@ class SettingDetailsViewController: UIViewController, UIPickerViewDelegate, UIPi
         // Do any additional setup after loading the view.
         self.countryPicker.delegate = self
         self.countryPicker.dataSource = self
-        
-        /*
-        let countrySing = Country(CountryID: 1, Country: "Singapore")
-        let countryPhil = Country(CountryID: 2, Country: "Phillipines")
-        countryList.append(countrySing)
-        countryList.append(countryPhil)
-        */
         
         loadLocationData()
     }
@@ -80,7 +74,23 @@ class SettingDetailsViewController: UIViewController, UIPickerViewDelegate, UIPi
         // The parameter named row and component represents what was selected.
     }
     
+    func saveData() {
+        if isExistingRecord {
+            saveExistingData()
+        }
+        else
+        {
+            saveNewRecord()
+        }
+    }
     
+    func saveExistingData() {
+        // NEED TO CODE THIS ON MONDAY
+    }
+    
+    func saveNewRecord() {
+        // NEED TO CODE THIS ON MONDAY
+    }
 
     /*
     // MARK: - Navigation
