@@ -91,6 +91,47 @@ class SettingDetailsViewController: UIViewController, UIPickerViewDelegate, UIPi
     func saveNewRecord() {
         // NEED TO CODE THIS ON MONDAY
     }
+    
+    func prepareForLocationDetailSegue() {
+        let url = URL(string: "http://www.gratuityp.com/pk/GetData.php")
+        var request = URLRequest(url: url!)
+        request.httpMethod = "POST"
+        var postString = "ScriptName=sp_Location_Update"
+        postString += "&ParamString="
+        postString += "'LocationID=" + String(currentLocation.locationID) + "'"
+        postString += "&LocationName=" + currentLocation.locationName + "'"
+        postString += "&Floor=" + currentLocation.floor + "'"
+        postString += "&CountryID=" + String(currentLocation.countryID) + "'"
+        request.httpBody = postString.data(using: .utf8)
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if error != nil
+            {
+                print(error!)
+            }
+            else
+            {
+                if data != nil
+                {
+                    do
+                    {
+                        DispatchQueue.main.async(execute: {
+                        print("Successful Location Retrieval")
+                        })
+                        
+                    }
+                    catch
+                    {
+                        print(error)
+                        DispatchQueue.main.async(execute: {
+                            print("Un-Successful Location Retrieval")
+                        })
+                    }
+                }
+            }
+        }
+        
+        task.resume()
+    }
 
     /*
     // MARK: - Navigation
