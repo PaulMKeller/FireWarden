@@ -6,8 +6,11 @@
 
 <body>
     <div class="mainText">
-        <form action="http://www.gratuityp.com/pk/GetLoginDetails.php" method="post">
-            <input class="inputBox" type="LoginName" name="LoginName" required>
+        <form action="http://www.gratuityp.com/pk/GetData.php" method="post">
+            <input class="inputBox" type="LocationID" name="LocationID" required>
+            <input class="inputBox" type="LocationName" name="LocationName" required>
+            <input class="inputBox" type="Floor" name="Floor" required>
+            <input class="inputBox" type="CountryID" name="CountryID" required>
             <input type="submit" name="submit" value="Submit" style="float: right;">
             <div id="errorText"></div>
         </form>

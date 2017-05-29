@@ -72,6 +72,9 @@ class SettingDetailsViewController: UIViewController, UIPickerViewDelegate, UIPi
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         // This method is triggered whenever the user makes a change to the picker selection.
         // The parameter named row and component represents what was selected.
+        let newCountry:Country = countryList[row]
+        currentLocation.countryID = newCountry.countryID
+        currentLocation.country = newCountry.country
     }
     
     func saveData() {
@@ -85,23 +88,16 @@ class SettingDetailsViewController: UIViewController, UIPickerViewDelegate, UIPi
     }
     
     func saveExistingData() {
-        // NEED TO CODE THIS ON MONDAY
-    }
-    
-    func saveNewRecord() {
-        // NEED TO CODE THIS ON MONDAY
-    }
-    
-    func prepareForLocationDetailSegue() {
-        let url = URL(string: "http://www.gratuityp.com/pk/GetData.php")
+        let url = URL(string: "http://www.gratuityp.com/pk/LocationChanges.php")
         var request = URLRequest(url: url!)
         request.httpMethod = "POST"
-        var postString = "ScriptName=sp_Location_Update"
-        postString += "&ParamString="
-        postString += "'LocationID=" + String(currentLocation.locationID) + "'"
-        postString += "&LocationName=" + currentLocation.locationName + "'"
-        postString += "&Floor=" + currentLocation.floor + "'"
-        postString += "&CountryID=" + String(currentLocation.countryID) + "'"
+        var postString = "LocationID=" + String(currentLocation.locationID)
+        postString += "&LocationName=" + currentLocation.locationName
+        postString += "&Floor=" + currentLocation.floor
+        postString += "&CountryID=" + String(currentLocation.countryID)
+        postString += "&ChangeType=Update"
+        postString = postString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+        print(postString)
         request.httpBody = postString.data(using: .utf8)
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             if error != nil
@@ -115,7 +111,7 @@ class SettingDetailsViewController: UIViewController, UIPickerViewDelegate, UIPi
                     do
                     {
                         DispatchQueue.main.async(execute: {
-                        print("Successful Location Retrieval")
+                            print("Successful Location Retrieval")
                         })
                         
                     }
@@ -131,6 +127,14 @@ class SettingDetailsViewController: UIViewController, UIPickerViewDelegate, UIPi
         }
         
         task.resume()
+    }
+    
+    func saveNewRecord() {
+        // NEED TO CODE THIS ON MONDAY
+    }
+    
+    func prepareForLocationDetailSegue() {
+        
     }
 
     /*
