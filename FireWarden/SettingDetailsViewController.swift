@@ -88,6 +88,11 @@ class SettingDetailsViewController: UIViewController, UIPickerViewDelegate, UIPi
     }
     
     func saveExistingData() {
+        
+        currentLocation.locationName = locationNameText.text!
+        currentLocation.floor = floorText.text!
+        //country changes handled by the picker view change event
+        
         let url = URL(string: "http://www.gratuityp.com/pk/LocationChanges.php")
         var request = URLRequest(url: url!)
         request.httpMethod = "POST"
@@ -130,7 +135,63 @@ class SettingDetailsViewController: UIViewController, UIPickerViewDelegate, UIPi
     }
     
     func saveNewRecord() {
-        // NEED TO CODE THIS ON MONDAY
+        currentLocation.locationName = locationNameText.text!
+        currentLocation.floor = floorText.text!
+        //country changes handled by the picker view change event
+        
+        let url = URL(string: "http://www.gratuityp.com/pk/LocationChanges.php")
+        var request = URLRequest(url: url!)
+        request.httpMethod = "POST"
+        var postString = "LocationID=" + String(currentLocation.locationID)
+        postString += "&LocationName=" + currentLocation.locationName
+        postString += "&Floor=" + currentLocation.floor
+        postString += "&CountryID=" + String(currentLocation.countryID)
+        postString += "&ChangeType=Insert"
+        postString = postString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+        print(postString)
+        request.httpBody = postString.data(using: .utf8)
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if error != nil
+            {
+                print(error!)
+            }
+            else
+            {
+                if data != nil
+                {
+                    do
+                    {
+                        let myJson = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
+                        print(myJson)
+                        if myJson.count > 0
+                        {
+                            let newRecordArray = myJson[0] as! NSDictionary
+                            let newLocation = Location(locationID: newRecordArray["LocationID"] as! Int32, locationName: newRecordArray["LocationName"] as! String, floor: newRecordArray["Floor"] as! String, countryID: newRecordArray["CountryID"] as! Int32, country: newRecordArray["Country"] as! String)
+                            
+                            self.currentLocation = newLocation
+                            
+                            DispatchQueue.main.async(execute: {
+                                //self.performSegue(withIdentifier: "loginSegue", sender: self)
+                                print("Successful Insert")
+                            })
+                        }
+                        else
+                        {
+                            DispatchQueue.main.async(execute: {
+                                print("Unsuccessful Insert")
+                            })
+                        }
+                        
+                    }
+                    catch
+                    {
+                        print(error)
+                    }
+                }
+            }
+        }
+        
+        task.resume()
     }
     
     func prepareForLocationDetailSegue() {

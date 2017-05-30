@@ -21,7 +21,7 @@ class SettingsTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        
+        settingsList.append("Countries")
         settingsList.append("Locations")
         settingsList.append("People")
         settingsList.append("Wardens")
@@ -60,18 +60,21 @@ class SettingsTableViewController: UITableViewController {
         
         switch indexPath.row {
         case 0:
+            //call countries code
+            prepareForCountriesSegue()
+        case 1:
             //call locations code
             prepareForLocationSegue(tableView: tableView)
-        case 1:
+        case 2:
             //call People code
             prepareForPeopleSegue()
-        case 2:
+        case 3:
             //call Wardens
             prepareForWardensSegue()
-        case 3:
+        case 4:
             //call General
             prepareForGeneralSegue()
-        case 4:
+        case 5:
             //call Logins
             prepareForLoginsSegue()
         default:
@@ -159,6 +162,8 @@ class SettingsTableViewController: UITableViewController {
             // Do general
         } else if segue.identifier == "loginsSegue" {
             // Do logins
+        } else if segue.identifier == "countriesSegue" {
+            // Do countries
         }
     }
     
@@ -175,6 +180,10 @@ class SettingsTableViewController: UITableViewController {
     }
     
     func prepareForLoginsSegue() {
+        
+    }
+    
+    func prepareForCountriesSegue() {
         
     }
 

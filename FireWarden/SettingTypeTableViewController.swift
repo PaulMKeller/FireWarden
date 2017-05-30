@@ -15,7 +15,7 @@ class SettingTypeTableViewController: UITableViewController {
     var countriesArray = [Country]()
 
     @IBAction func addTapped(_ sender: Any) {
-        
+        prepareForLocationDetailSegue(segueIdentifier: "addLocationSegue")
     }
 
     override func viewDidLoad() {
@@ -62,10 +62,10 @@ class SettingTypeTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         currentLocation = locationsArray[indexPath.row]
-        prepareForLocationDetailSegue()
+        prepareForLocationDetailSegue(segueIdentifier: "locationDetailSegue")
     }
     
-    func prepareForLocationDetailSegue() {
+    func prepareForLocationDetailSegue(segueIdentifier: String) {
         
         let waitingView = showWaitingView(tableView: tableView)
         
@@ -88,6 +88,7 @@ class SettingTypeTableViewController: UITableViewController {
                 }
                 if let content=data
                 {
+                    print(data!)
                     do
                     {
                         let myJson = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as! NSArray
@@ -102,12 +103,10 @@ class SettingTypeTableViewController: UITableViewController {
                                 self.countriesArray.append(countryDetails)
                             }
                             DispatchQueue.main.async(execute: {
-                                //self.activityIndicator.stopAnimating()
-                                //self.errorText.text = "Invalid Credentials Supplied"
                                 print("Successful Location Retrieval")
                                 
                                 //Pass the locations array to the next view
-                                self.performSegue(withIdentifier: "locationDetailSegue", sender: self)
+                                self.performSegue(withIdentifier: segueIdentifier, sender: self)
                                 
                             })
                         }
@@ -133,10 +132,13 @@ class SettingTypeTableViewController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let nextScene = segue.destination as! SettingDetailsViewController
+        nextScene.countryList = self.countriesArray
         if segue.identifier == "locationDetailSegue" {
-            let nextScene = segue.destination as! SettingDetailsViewController
             nextScene.currentLocation = self.currentLocation
-            nextScene.countryList = self.countriesArray
+        } else if segue.identifier == "addLocationSegue" {
+            nextScene.currentLocation = Location()
+            nextScene.isExistingRecord = false
         }
     }
     
