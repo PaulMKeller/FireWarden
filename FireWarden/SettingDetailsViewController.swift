@@ -119,13 +119,6 @@ class SettingDetailsViewController: UIViewController, UIPickerViewDelegate, UIPi
                         })
                         
                     }
-                    catch
-                    {
-                        print(error)
-                        DispatchQueue.main.async(execute: {
-                            print("Un-Successful Location Retrieval")
-                        })
-                    }
                 }
             }
         }
@@ -163,9 +156,6 @@ class SettingDetailsViewController: UIViewController, UIPickerViewDelegate, UIPi
                         if myJson.count > 0
                         {
                             let newRecordArray = myJson[0] as! NSDictionary
-                            /*
-                            let newLocation = Location(locationID: newRecordArray["LocationID"] as! Int32, locationName: newRecordArray["LocationName"] as! String, floor: newRecordArray["Floor"] as! String, countryID: newRecordArray["CountryID"] as! Int32, country: newRecordArray["Country"] as! String)
-                            */
                             let newLocation = Location()
                             newLocation.locationID = Int32(newRecordArray["LocationID"] as! String)!
                             newLocation.locationName = newRecordArray["LocationName"] as! String
