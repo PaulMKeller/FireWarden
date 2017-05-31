@@ -88,7 +88,6 @@ class SettingTypeTableViewController: UITableViewController {
                 }
                 if let content=data
                 {
-                    print(data!)
                     do
                     {
                         let myJson = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as! NSArray

@@ -17,13 +17,12 @@ if( $conn === false ) {
 }
  
 /* TSQL Query */
-$getLocationID = $_POST['LocationID'];
 $getLocationName = $_POST['LocationName'];
 $getFloor = $_POST['Floor'];
 $getCountryID = $_POST['CountryID'];
 
-$tsql = "EXEC sp_Location_Update @LocationID=?, @LocationName=?, @Floor=?, @CountryID=?";
-$params = array($getLocationID, $getLocationName, $getFloor, $getCountryID);
+$tsql = "EXEC sp_Location_Insert @LocationName=?, @Floor=?, @CountryID=?";
+$params = array($getLocationName, $getFloor, $getCountryID);
 $stmt = sqlsrv_query( $conn, $tsql, $params);
  
 if( $stmt === false ) {

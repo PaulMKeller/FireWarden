@@ -100,7 +100,6 @@ class SettingDetailsViewController: UIViewController, UIPickerViewDelegate, UIPi
         postString += "&LocationName=" + currentLocation.locationName
         postString += "&Floor=" + currentLocation.floor
         postString += "&CountryID=" + String(currentLocation.countryID)
-        postString += "&ChangeType=Update"
         postString = postString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
         print(postString)
         request.httpBody = postString.data(using: .utf8)
@@ -139,14 +138,12 @@ class SettingDetailsViewController: UIViewController, UIPickerViewDelegate, UIPi
         currentLocation.floor = floorText.text!
         //country changes handled by the picker view change event
         
-        let url = URL(string: "http://www.gratuityp.com/pk/LocationChanges.php")
+        let url = URL(string: "http://www.gratuityp.com/pk/LocationInsert.php")
         var request = URLRequest(url: url!)
         request.httpMethod = "POST"
-        var postString = "LocationID=" + String(currentLocation.locationID)
-        postString += "&LocationName=" + currentLocation.locationName
+        var postString = "LocationName=" + currentLocation.locationName
         postString += "&Floor=" + currentLocation.floor
         postString += "&CountryID=" + String(currentLocation.countryID)
-        postString += "&ChangeType=Insert"
         postString = postString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
         print(postString)
         request.httpBody = postString.data(using: .utf8)
@@ -166,7 +163,15 @@ class SettingDetailsViewController: UIViewController, UIPickerViewDelegate, UIPi
                         if myJson.count > 0
                         {
                             let newRecordArray = myJson[0] as! NSDictionary
+                            /*
                             let newLocation = Location(locationID: newRecordArray["LocationID"] as! Int32, locationName: newRecordArray["LocationName"] as! String, floor: newRecordArray["Floor"] as! String, countryID: newRecordArray["CountryID"] as! Int32, country: newRecordArray["Country"] as! String)
+                            */
+                            let newLocation = Location()
+                            newLocation.locationID = Int32(newRecordArray["LocationID"] as! String)!
+                            newLocation.locationName = newRecordArray["LocationName"] as! String
+                            newLocation.floor = newRecordArray["Floor"] as! String
+                            newLocation.countryID = newRecordArray["CountryID"] as! Int32
+                            newLocation.country = newRecordArray["CountryName"] as! String
                             
                             self.currentLocation = newLocation
                             
