@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SettingTypeTableViewController: UITableViewController {
+class SettingTypeTableViewController: UITableViewController, DataBackDelegate {
     
     var locationsArray = [Location]()
     var currentLocation = Location()
@@ -44,7 +44,6 @@ class SettingTypeTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        print(self.locationsArray.count)
         return self.locationsArray.count
     }
 
@@ -162,6 +161,10 @@ class SettingTypeTableViewController: UITableViewController {
         
         spinner.startAnimating()
         return effectView
+    }
+    
+    func passLocationDataBack(objectToPass: Location) {
+        // Add a UITableViewCell to the table and add the new location to the locations array
     }
 
     /*

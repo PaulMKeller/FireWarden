@@ -20,6 +20,9 @@ class SettingDetailsViewController: UIViewController, UIPickerViewDelegate, UIPi
     var currentLocation = Location()
     var countryList = [Country]()
     var isExistingRecord = true
+    var newRecordAdded = false
+    
+    weak var delegate: DataBackDelegate?
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(false, animated: true)
@@ -167,6 +170,9 @@ class SettingDetailsViewController: UIViewController, UIPickerViewDelegate, UIPi
                             
                             DispatchQueue.main.async(execute: {
                                 //self.performSegue(withIdentifier: "loginSegue", sender: self)
+                                self.newRecordAdded = true
+                                self.delegate?.passLocationDataBack(objectToPass: self.currentLocation)
+                                //perform segue back so you can only add one record
                                 print("Successful Insert")
                             })
                         }
