@@ -8,5 +8,5 @@
 
 import Foundation
 protocol DataBackDelegate: class {
-    func passLocationDataBack(objectToPass: Location)
+    func passLocationDataBack(isNewRecord: Bool, arrayIndex: Int32, objectToPass: Location)
 }

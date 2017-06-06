@@ -21,6 +21,7 @@ class SettingDetailsViewController: UIViewController, UIPickerViewDelegate, UIPi
     var countryList = [Country]()
     var isExistingRecord = true
     var newRecordAdded = false
+    var existingArrayIndex: Int32! = 0
     
     weak var delegate: DataBackDelegate?
     
@@ -119,6 +120,7 @@ class SettingDetailsViewController: UIViewController, UIPickerViewDelegate, UIPi
                     {
                         DispatchQueue.main.async(execute: {
                             print("Successful Location Retrieval")
+                            self.delegate?.passLocationDataBack(isNewRecord: false, arrayIndex: self.existingArrayIndex, objectToPass: self.currentLocation)
                         })
                         
                     }
@@ -171,7 +173,7 @@ class SettingDetailsViewController: UIViewController, UIPickerViewDelegate, UIPi
                             DispatchQueue.main.async(execute: {
                                 //self.performSegue(withIdentifier: "loginSegue", sender: self)
                                 self.newRecordAdded = true
-                                self.delegate?.passLocationDataBack(objectToPass: self.currentLocation)
+                                self.delegate?.passLocationDataBack(isNewRecord: true, arrayIndex: self.existingArrayIndex, objectToPass: self.currentLocation)
                                 //perform segue back so you can only add one record
                                 print("Successful Insert")
                             })

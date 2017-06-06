@@ -13,6 +13,7 @@ class SettingTypeTableViewController: UITableViewController, DataBackDelegate {
     var locationsArray = [Location]()
     var currentLocation = Location()
     var countriesArray = [Country]()
+    var selectedRowIndex: Int32! = 0
 
     @IBAction func addTapped(_ sender: Any) {
         prepareForLocationDetailSegue(segueIdentifier: "addLocationSegue")
@@ -61,6 +62,7 @@ class SettingTypeTableViewController: UITableViewController, DataBackDelegate {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         currentLocation = locationsArray[indexPath.row]
+        self.selectedRowIndex = Int32(indexPath.row)
         prepareForLocationDetailSegue(segueIdentifier: "locationDetailSegue")
     }
     
@@ -134,9 +136,11 @@ class SettingTypeTableViewController: UITableViewController, DataBackDelegate {
         nextScene.countryList = self.countriesArray
         if segue.identifier == "locationDetailSegue" {
             nextScene.currentLocation = self.currentLocation
+            nextScene.existingArrayIndex = self.selectedRowIndex
         } else if segue.identifier == "addLocationSegue" {
             nextScene.currentLocation = Location()
             nextScene.isExistingRecord = false
+            nextScene.existingArrayIndex = 0
         }
     }
     
@@ -163,19 +167,21 @@ class SettingTypeTableViewController: UITableViewController, DataBackDelegate {
         return effectView
     }
     
-    func passLocationDataBack(objectToPass: Location) {
+    func passLocationDataBack(isNewRecord: Bool, arrayIndex: Int32, objectToPass: Location) {
         // Add a UITableViewCell to the table and add the new location to the locations array
+        if isNewRecord {
+            //do new record addition of cell
+        } else {
+            // Update the existing cell and the array
+        }
     }
 
-    /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
     }
-    */
 
-    /*
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
@@ -185,8 +191,7 @@ class SettingTypeTableViewController: UITableViewController, DataBackDelegate {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
-
+ 
     /*
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
