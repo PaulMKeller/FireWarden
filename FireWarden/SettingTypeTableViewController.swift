@@ -171,8 +171,12 @@ class SettingTypeTableViewController: UITableViewController, DataBackDelegate {
         // Add a UITableViewCell to the table and add the new location to the locations array
         if isNewRecord {
             //do new record addition of cell
+            locationsArray.append(objectToPass)
+            tableView.reloadData()
         } else {
             // Update the existing cell and the array
+            locationsArray.remove(at: Int(arrayIndex))
+            locationsArray.insert(objectToPass, at: Int(arrayIndex))
         }
     }
 

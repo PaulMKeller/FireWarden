@@ -121,6 +121,7 @@ class SettingDetailsViewController: UIViewController, UIPickerViewDelegate, UIPi
                         DispatchQueue.main.async(execute: {
                             print("Successful Location Retrieval")
                             self.delegate?.passLocationDataBack(isNewRecord: false, arrayIndex: self.existingArrayIndex, objectToPass: self.currentLocation)
+                            _ = self.navigationController?.popViewController(animated: true)
                         })
                         
                     }
@@ -175,6 +176,7 @@ class SettingDetailsViewController: UIViewController, UIPickerViewDelegate, UIPi
                                 self.newRecordAdded = true
                                 self.delegate?.passLocationDataBack(isNewRecord: true, arrayIndex: self.existingArrayIndex, objectToPass: self.currentLocation)
                                 //perform segue back so you can only add one record
+                                _ = self.navigationController?.popViewController(animated: true)
                                 print("Successful Insert")
                             })
                         }
