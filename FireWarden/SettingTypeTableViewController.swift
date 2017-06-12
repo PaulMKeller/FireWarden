@@ -134,6 +134,7 @@ class SettingTypeTableViewController: UITableViewController, DataBackDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let nextScene = segue.destination as! SettingDetailsViewController
         nextScene.countryList = self.countriesArray
+        nextScene.delegate = self
         if segue.identifier == "locationDetailSegue" {
             nextScene.currentLocation = self.currentLocation
             nextScene.existingArrayIndex = self.selectedRowIndex
@@ -177,6 +178,7 @@ class SettingTypeTableViewController: UITableViewController, DataBackDelegate {
             // Update the existing cell and the array
             locationsArray.remove(at: Int(arrayIndex))
             locationsArray.insert(objectToPass, at: Int(arrayIndex))
+            tableView.reloadData()
         }
     }
 

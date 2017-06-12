@@ -157,7 +157,7 @@ class SettingDetailsViewController: UIViewController, UIPickerViewDelegate, UIPi
                 {
                     do
                     {
-                        let myJson = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
+                        let myJson = try JSONSerialization.jsonObject(with: data!, options: [JSONSerialization.ReadingOptions.mutableContainers, JSONSerialization.ReadingOptions.allowFragments]) as AnyObject
                         print(myJson)
                         if myJson.count > 0
                         {
