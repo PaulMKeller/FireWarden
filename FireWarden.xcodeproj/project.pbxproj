@@ -40,6 +40,9 @@
 		DA402D991ECECC0F00C3E835 /* WardensTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA402D981ECECC0F00C3E835 /* WardensTableViewController.swift */; };
 		DA402D9B1ECED8F500C3E835 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA402D9A1ECED8F500C3E835 /* Location.swift */; };
 		DA744D591ECC2B9300521EB8 /* Backlog.rtf in Resources */ = {isa = PBXBuildFile; fileRef = DA744D581ECC2B9300521EB8 /* Backlog.rtf */; };
+		DA77FC291EEF8BDD00FCC66F /* CountriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA77FC281EEF8BDD00FCC66F /* CountriesTableViewController.swift */; };
+		DA77FC2B1EEF8CA300FCC66F /* CountriesDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA77FC2A1EEF8CA300FCC66F /* CountriesDetailViewController.swift */; };
+		DA77FC2D1EEFD08200FCC66F /* CountryPassBack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA77FC2C1EEFD08200FCC66F /* CountryPassBack.swift */; };
 		DA823FF81EB97E2C00AB818C /* ID Verified.png in Resources */ = {isa = PBXBuildFile; fileRef = DA823FF21EB97E2C00AB818C /* ID Verified.png */; };
 		DA823FF91EB97E2C00AB818C /* ID Verified Filled.png in Resources */ = {isa = PBXBuildFile; fileRef = DA823FF31EB97E2C00AB818C /* ID Verified Filled.png */; };
 		DA823FFA1EB97E2C00AB818C /* Conference.png in Resources */ = {isa = PBXBuildFile; fileRef = DA823FF41EB97E2C00AB818C /* Conference.png */; };
@@ -118,6 +121,9 @@
 		DA402D981ECECC0F00C3E835 /* WardensTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WardensTableViewController.swift; sourceTree = "<group>"; };
 		DA402D9A1ECED8F500C3E835 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		DA744D581ECC2B9300521EB8 /* Backlog.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = Backlog.rtf; sourceTree = "<group>"; };
+		DA77FC281EEF8BDD00FCC66F /* CountriesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountriesTableViewController.swift; sourceTree = "<group>"; };
+		DA77FC2A1EEF8CA300FCC66F /* CountriesDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountriesDetailViewController.swift; sourceTree = "<group>"; };
+		DA77FC2C1EEFD08200FCC66F /* CountryPassBack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryPassBack.swift; sourceTree = "<group>"; };
 		DA823FF21EB97E2C00AB818C /* ID Verified.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ID Verified.png"; sourceTree = "<group>"; };
 		DA823FF31EB97E2C00AB818C /* ID Verified Filled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ID Verified Filled.png"; sourceTree = "<group>"; };
 		DA823FF41EB97E2C00AB818C /* Conference.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Conference.png; sourceTree = "<group>"; };
@@ -184,6 +190,7 @@
 				DA402D9A1ECED8F500C3E835 /* Location.swift */,
 				DACDD5F31ED33DA900414373 /* Country.swift */,
 				DAAB0EC91EE16D7800AE8978 /* PassDataBack.swift */,
+				DA77FC2C1EEFD08200FCC66F /* CountryPassBack.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -300,6 +307,8 @@
 				DA30D2B61EB8370D00D6ACAF /* SettingDetailsViewController.swift */,
 				DA402D961ECECBB900C3E835 /* PeopleTableViewController.swift */,
 				DA402D981ECECC0F00C3E835 /* WardensTableViewController.swift */,
+				DA77FC281EEF8BDD00FCC66F /* CountriesTableViewController.swift */,
+				DA77FC2A1EEF8CA300FCC66F /* CountriesDetailViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -490,6 +499,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA77FC291EEF8BDD00FCC66F /* CountriesTableViewController.swift in Sources */,
 				DAFCD34A1EB082390055DAD5 /* RegisterTableViewController.swift in Sources */,
 				DA30D2B51EB8364200D6ACAF /* SettingTypeTableViewController.swift in Sources */,
 				DA402D9B1ECED8F500C3E835 /* Location.swift in Sources */,
@@ -497,6 +507,7 @@
 				DAD1AD661EC5945000E9834C /* Login.swift in Sources */,
 				DAFCD3471EB081E00055DAD5 /* RegisterNavigationController.swift in Sources */,
 				DAFCD34C1EB0838B0055DAD5 /* PersonRegistrationTableViewController.swift in Sources */,
+				DA77FC2D1EEFD08200FCC66F /* CountryPassBack.swift in Sources */,
 				DA9403A71EB1F4ED00092DCC /* PersonListTableViewController.swift in Sources */,
 				DA9403A91EB1F53500092DCC /* PersonListDetailViewController.swift in Sources */,
 				DACDD5F41ED33DA900414373 /* Country.swift in Sources */,
@@ -505,6 +516,7 @@
 				DA30D2B31EB8350D00D6ACAF /* SettingsTableViewController.swift in Sources */,
 				DA30D2B71EB8370D00D6ACAF /* SettingDetailsViewController.swift in Sources */,
 				DAFCD3451EB073160055DAD5 /* LoginViewController.swift in Sources */,
+				DA77FC2B1EEF8CA300FCC66F /* CountriesDetailViewController.swift in Sources */,
 				DA9403A51EB1F46100092DCC /* PersonListNavigationController.swift in Sources */,
 				DA402D971ECECBB900C3E835 /* PeopleTableViewController.swift in Sources */,
 				DAD7522E1EADAA7D0018FA60 /* AppDelegate.swift in Sources */,

@@ -12,6 +12,7 @@ class SettingsTableViewController: UITableViewController {
     
     var settingsList = [String]()
     var locationsArray = [Location]()
+    var countriesArray = [Country]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -163,7 +164,8 @@ class SettingsTableViewController: UITableViewController {
         } else if segue.identifier == "loginsSegue" {
             // Do logins
         } else if segue.identifier == "countriesSegue" {
-            // Do countries
+            let nextScene = segue.destination as! CountriesTableViewController
+            nextScene.countriesArray = self.countriesArray
         }
     }
     
@@ -184,7 +186,70 @@ class SettingsTableViewController: UITableViewController {
     }
     
     func prepareForCountriesSegue() {
+        let waitingView = showWaitingView(tableView: tableView)
         
+        let url = URL(string: "http://www.gratuityp.com/pk/GetData.php")
+        var request = URLRequest(url: url!)
+        request.httpMethod = "POST"
+        let postString = "ScriptName=sp_Country_GetList&ParamString=''"
+        request.httpBody = postString.data(using: .utf8)
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if error != nil
+            {
+                print(error!)
+            }
+            else
+            {
+                defer {
+                    DispatchQueue.main.async {
+                        waitingView.removeFromSuperview()
+                    }
+                }
+                if let content=data
+                {
+                    do
+                    {
+                        let myJson = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as! NSArray
+                        print(myJson)
+                        if myJson.count > 0
+                        {
+                            self.countriesArray.removeAll()
+                            for item in myJson {
+                                let obj = item as! NSDictionary
+                                let countryDetails = Country(CountryID: obj["CountryID"] as! Int32, Country: obj["Country"] as! String)
+                                print(countryDetails)
+                                self.countriesArray.append(countryDetails)
+                            }
+                            DispatchQueue.main.async(execute: {
+                                //self.activityIndicator.stopAnimating()
+                                //self.errorText.text = "Invalid Credentials Supplied"
+                                print("Successful Location Retrieval")
+                                
+                                //Pass the locations array to the next view
+                                self.performSegue(withIdentifier: "countriesSegue", sender: self)
+                                
+                            })
+                        }
+                        else
+                        {
+                            DispatchQueue.main.async(execute: {
+                                //self.activityIndicator.stopAnimating()
+                                //self.errorText.text = "Invalid Credentials Supplied"
+                                print("Un-Successful Location Retrieval")
+                            })
+                        }
+                        
+                    }
+                    catch
+                    {
+                        print(error)
+                    }
+                }
+            }
+        }
+        
+        task.resume()
+
     }
 
 private func showWaitingView(tableView: UITableView) -> UIView {

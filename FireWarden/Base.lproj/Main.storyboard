@@ -436,6 +436,7 @@
                         <segue destination="nhe-8y-dfi" kind="show" identifier="locationsSegue" id="scD-Ff-Xwm"/>
                         <segue destination="vwe-2B-29R" kind="show" identifier="peopleSegue" id="1R7-HB-mbk"/>
                         <segue destination="f4l-Pb-SAx" kind="show" identifier="wardensSegue" id="drV-md-XhJ"/>
+                        <segue destination="och-er-w5M" kind="show" identifier="countriesSegue" id="pT6-YF-WYP"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vgV-Sq-30k" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -528,6 +529,100 @@
             </objects>
             <point key="canvasLocation" x="2890" y="1667"/>
         </scene>
+        <!--Countries-->
+        <scene sceneID="vPZ-s7-zV7">
+            <objects>
+                <tableViewController id="och-er-w5M" customClass="CountriesTableViewController" customModule="FireWarden" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="X8G-Xs-PgC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="countryCell" textLabel="ei4-9D-NvM" style="IBUITableViewCellStyleDefault" id="bOx-U1-5Yt">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bOx-U1-5Yt" id="gzm-ue-fVQ">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="A Country" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ei4-9D-NvM">
+                                            <rect key="frame" x="15" y="0.0" width="345" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="och-er-w5M" id="LSs-vn-mMS"/>
+                            <outlet property="delegate" destination="och-er-w5M" id="zdd-VV-bGH"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Countries" id="UTW-Hr-F96">
+                        <barButtonItem key="backBarButtonItem" title="Settings" id="X2t-fW-dFu"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="z4f-zl-Dkn">
+                            <connections>
+                                <action selector="addCountryTapped:" destination="och-er-w5M" id="6GF-BX-Z6J"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="c1a-Ip-7OE" kind="show" identifier="countryDetailSegue" id="6JS-1u-pEG"/>
+                        <segue destination="c1a-Ip-7OE" kind="show" identifier="addCountrySegue" id="rYu-Nb-nos"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9YO-f3-jbZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2889" y="3110"/>
+        </scene>
+        <!--Country-->
+        <scene sceneID="PdR-Zy-ubE">
+            <objects>
+                <viewController id="c1a-Ip-7OE" customClass="CountriesDetailViewController" customModule="FireWarden" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3Rc-E8-Zwc"/>
+                        <viewControllerLayoutGuide type="bottom" id="NLR-qQ-boM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gJQ-9Z-zE0">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Country:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="efd-3q-B8u">
+                                <rect key="frame" x="16" y="86" width="343" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Country Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5ik-bU-FSg">
+                                <rect key="frame" x="16" y="115" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Country" id="SLf-UN-Xi6">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="Niq-dg-iNI"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="iFM-4m-Nma">
+                            <connections>
+                                <action selector="saveButtonTapped:" destination="c1a-Ip-7OE" id="gyn-Jc-A0R"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="countryNameText" destination="5ik-bU-FSg" id="y46-jy-1WJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9jf-mo-nzO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3704.8000000000002" y="3108.3958020989508"/>
+        </scene>
         <!--Wardens Table View Controller-->
         <scene sceneID="52f-cp-Lin">
             <objects>
@@ -541,7 +636,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="f8d-ve-qAF" id="oAG-XP-wxF">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -700,7 +795,8 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Lrl-9x-kXI"/>
-        <segue reference="ke4-g8-i8n"/>
+        <segue reference="rYu-Nb-nos"/>
+        <segue reference="1sx-nE-0Oa"/>
         <segue reference="VAp-c4-P77"/>
     </inferredMetricsTieBreakers>
 </document>
