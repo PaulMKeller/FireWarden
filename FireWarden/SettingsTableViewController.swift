@@ -13,6 +13,7 @@ class SettingsTableViewController: UITableViewController {
     var settingsList = [String]()
     var locationsArray = [Location]()
     var countriesArray = [Country]()
+    var peopleArray = [Person]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -156,7 +157,8 @@ class SettingsTableViewController: UITableViewController {
             let nextScene = segue.destination as! SettingTypeTableViewController
             nextScene.locationsArray = self.locationsArray
         } else if segue.identifier == "peopleSegue" {
-            // Do people
+            let nextScene = segue.destination as! PeopleTableViewController
+            nextScene.peopleArray = self.peopleArray
         } else if segue.identifier == "wardensSegue" {
             // Do Wardens
         } else if segue.identifier == "generalSegue" {
@@ -170,7 +172,71 @@ class SettingsTableViewController: UITableViewController {
     }
     
     func prepareForPeopleSegue() {
+        let waitingView = showWaitingView(tableView: tableView)
         
+        let url = URL(string: "http://www.gratuityp.com/pk/GetData.php")
+        var request = URLRequest(url: url!)
+        request.httpMethod = "POST"
+        let postString = "ScriptName=sp_Person_GetList&ParamString=''"
+        request.httpBody = postString.data(using: .utf8)
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if error != nil
+            {
+                print(error!)
+            }
+            else
+            {
+                defer {
+                    DispatchQueue.main.async {
+                        waitingView.removeFromSuperview()
+                    }
+                }
+                if let content=data
+                {
+                    do
+                    {
+                        let myJson = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as! NSArray
+                        print(myJson)
+                        //If there's no records in the table, this will fail...
+                        if myJson.count > 0
+                        {
+                            self.peopleArray.removeAll()
+                            for item in myJson {
+                                let obj = item as! NSDictionary
+                                let locationDetails = Location(locationID: obj["LocationID"] as! Int32, locationName: obj["LocationName"] as! String, floor: obj["Floor"] as! String, countryID: obj["CountryID"] as! Int32, country: obj["Country"] as! String)
+                                let personDetails = Person(personID: obj["PersonID"] as! Int32, firstName: obj["FirstName"] as! String, lastName: obj["LastName"] as! String, gender: obj["Gender"] as! String, personLocation: locationDetails)
+                                print(locationDetails)
+                                self.peopleArray.append(personDetails)
+                            }
+                            DispatchQueue.main.async(execute: {
+                                //self.activityIndicator.stopAnimating()
+                                //self.errorText.text = "Invalid Credentials Supplied"
+                                print("Successful People Retrieval")
+                                
+                                //Pass the locations array to the next view
+                                self.performSegue(withIdentifier: "peopleSegue", sender: self)
+                                
+                            })
+                        }
+                        else
+                        {
+                            DispatchQueue.main.async(execute: {
+                                //self.activityIndicator.stopAnimating()
+                                //self.errorText.text = "Invalid Credentials Supplied"
+                                print("Un-Successful People Retrieval")
+                            })
+                        }
+                        
+                    }
+                    catch
+                    {
+                        print(error)
+                    }
+                }
+            }
+        }
+        
+        task.resume()
     }
     
     func prepareForWardensSegue() {

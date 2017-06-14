@@ -8,7 +8,12 @@
 
 import UIKit
 
-class PeopleTableViewController: UITableViewController {
+class PeopleTableViewController: UITableViewController, PersonPassBackDelegate {
+    
+    var peopleArray = [Person]()
+    var locationsArray = [Location]()
+    var currentPerson = Person()
+    var selectedRowIndex: Int32! = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,17 +39,143 @@ class PeopleTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 4
+        return peopleArray.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "personIdentifier", for: indexPath)
 
-        // Configure the cell...
+        let currentPerson = self.peopleArray[indexPath.row]
+        
+        cell.textLabel?.text = currentPerson.firstName + " " + currentPerson.lastName
+        cell.detailTextLabel?.text = currentPerson.personLocation.country + " - " + currentPerson.personLocation.locationName
 
         return cell
     }
-
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        currentPerson = peopleArray[indexPath.row]
+        self.selectedRowIndex = Int32(indexPath.row)
+        prepareForPersonDetailSegue(segueIdentifier: "personDetailSegue")
+    }
+    
+    func prepareForPersonDetailSegue(segueIdentifier: String) {
+        let waitingView = showWaitingView(tableView: tableView)
+        
+        let url = URL(string: "http://www.gratuityp.com/pk/GetData.php")
+        var request = URLRequest(url: url!)
+        request.httpMethod = "POST"
+        let postString = "ScriptName=sp_Location_GetList&ParamString=''"
+        request.httpBody = postString.data(using: .utf8)
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if error != nil
+            {
+                print(error!)
+            }
+            else
+            {
+                defer {
+                    DispatchQueue.main.async {
+                        waitingView.removeFromSuperview()
+                    }
+                }
+                if let content=data
+                {
+                    do
+                    {
+                        let myJson = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as! NSArray
+                        print(myJson)
+                        if myJson.count > 0
+                        {
+                            self.locationsArray.removeAll()
+                            for item in myJson {
+                                let obj = item as! NSDictionary
+                                let locationDetails = Location(locationID: obj["LocationID"] as! Int32, locationName: obj["LocationName"] as! String, floor: obj["Floor"] as! String, countryID: obj["CountryID"] as! Int32, country: obj["Country"] as! String)
+                                print(locationDetails)
+                                self.locationsArray.append(locationDetails)
+                            }
+                            DispatchQueue.main.async(execute: {
+                                //self.activityIndicator.stopAnimating()
+                                //self.errorText.text = "Invalid Credentials Supplied"
+                                print("Successful Location Retrieval")
+                                
+                                //Pass the locations array to the next view
+                                self.performSegue(withIdentifier: segueIdentifier, sender: self)
+                                
+                            })
+                        }
+                        else
+                        {
+                            DispatchQueue.main.async(execute: {
+                                //self.activityIndicator.stopAnimating()
+                                //self.errorText.text = "Invalid Credentials Supplied"
+                                print("Un-Successful Location Retrieval")
+                            })
+                        }
+                        
+                    }
+                    catch
+                    {
+                        print(error)
+                    }
+                }
+            }
+        }
+        
+        task.resume()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let nextScene = segue.destination as! PersonDetailViewController
+        nextScene.locationsArray = self.locationsArray
+        nextScene.delegate = self
+        if segue.identifier == "personDetailSegue" {
+            nextScene.currentPerson = self.currentPerson
+            nextScene.existingArrayIndex = self.selectedRowIndex
+        } else if segue.identifier == "addPersonSegue" {
+            nextScene.currentPerson = Person()
+            nextScene.isExistingRecord = false
+            nextScene.existingArrayIndex = 0
+        }
+    }
+    
+    private func showWaitingView(tableView: UITableView) -> UIView {
+        let effectView = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
+        effectView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.addSubview(effectView)
+        NSLayoutConstraint.activate([
+            effectView.leadingAnchor.constraint(equalTo: tableView.leadingAnchor),
+            effectView.trailingAnchor.constraint(equalTo: tableView.trailingAnchor),
+            effectView.topAnchor.constraint(equalTo: tableView.topAnchor),
+            effectView.bottomAnchor.constraint(equalTo: tableView.bottomAnchor)
+            ])
+        
+        let spinner = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+        effectView.addSubview(spinner)
+        spinner.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            spinner.centerXAnchor.constraint(equalTo: tableView.centerXAnchor),
+            spinner.centerYAnchor.constraint(equalTo: tableView.centerYAnchor)
+            ])
+        
+        spinner.startAnimating()
+        return effectView
+    }
+    
+    func passPersonDataBack(isNewRecord: Bool, arrayIndex: Int32, objectToPass: Person) {
+        // Add a UITableViewCell to the table and add the new location to the locations array
+        if isNewRecord {
+            //do new record addition of cell
+            peopleArray.append(objectToPass)
+            tableView.reloadData()
+        } else {
+            // Update the existing cell and the array
+            peopleArray.remove(at: Int(arrayIndex))
+            peopleArray.insert(objectToPass, at: Int(arrayIndex))
+            tableView.reloadData()
+        }
+    }
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -52,7 +183,7 @@ class PeopleTableViewController: UITableViewController {
         return true
     }
     */
-
+    
     /*
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {

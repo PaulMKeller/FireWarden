@@ -49,6 +49,9 @@
 		DA823FFB1EB97E2C00AB818C /* Conference Filled.png in Resources */ = {isa = PBXBuildFile; fileRef = DA823FF51EB97E2C00AB818C /* Conference Filled.png */; };
 		DA823FFC1EB97E2C00AB818C /* Settings.png in Resources */ = {isa = PBXBuildFile; fileRef = DA823FF61EB97E2C00AB818C /* Settings.png */; };
 		DA823FFD1EB97E2C00AB818C /* Settings Filled.png in Resources */ = {isa = PBXBuildFile; fileRef = DA823FF71EB97E2C00AB818C /* Settings Filled.png */; };
+		DA88753C1EF0E78A00D360B8 /* PersonDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA88753B1EF0E78A00D360B8 /* PersonDetailViewController.swift */; };
+		DA88753E1EF110AC00D360B8 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA88753D1EF110AC00D360B8 /* Person.swift */; };
+		DA8875401EF139F500D360B8 /* PersonPassBack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA88753F1EF139F400D360B8 /* PersonPassBack.swift */; };
 		DA9403A51EB1F46100092DCC /* PersonListNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9403A41EB1F46100092DCC /* PersonListNavigationController.swift */; };
 		DA9403A71EB1F4ED00092DCC /* PersonListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9403A61EB1F4ED00092DCC /* PersonListTableViewController.swift */; };
 		DA9403A91EB1F53500092DCC /* PersonListDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9403A81EB1F53500092DCC /* PersonListDetailViewController.swift */; };
@@ -130,6 +133,9 @@
 		DA823FF51EB97E2C00AB818C /* Conference Filled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Conference Filled.png"; sourceTree = "<group>"; };
 		DA823FF61EB97E2C00AB818C /* Settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Settings.png; sourceTree = "<group>"; };
 		DA823FF71EB97E2C00AB818C /* Settings Filled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Settings Filled.png"; sourceTree = "<group>"; };
+		DA88753B1EF0E78A00D360B8 /* PersonDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonDetailViewController.swift; sourceTree = "<group>"; };
+		DA88753D1EF110AC00D360B8 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		DA88753F1EF139F400D360B8 /* PersonPassBack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonPassBack.swift; sourceTree = "<group>"; };
 		DA9403A41EB1F46100092DCC /* PersonListNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonListNavigationController.swift; sourceTree = "<group>"; };
 		DA9403A61EB1F4ED00092DCC /* PersonListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonListTableViewController.swift; sourceTree = "<group>"; };
 		DA9403A81EB1F53500092DCC /* PersonListDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonListDetailViewController.swift; sourceTree = "<group>"; };
@@ -189,8 +195,7 @@
 				DAD1AD651EC5945000E9834C /* Login.swift */,
 				DA402D9A1ECED8F500C3E835 /* Location.swift */,
 				DACDD5F31ED33DA900414373 /* Country.swift */,
-				DAAB0EC91EE16D7800AE8978 /* PassDataBack.swift */,
-				DA77FC2C1EEFD08200FCC66F /* CountryPassBack.swift */,
+				DA88753D1EF110AC00D360B8 /* Person.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -227,6 +232,16 @@
 			name = Icons;
 			sourceTree = "<group>";
 		};
+		DA8875411EF139FE00D360B8 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				DAAB0EC91EE16D7800AE8978 /* PassDataBack.swift */,
+				DA77FC2C1EEFD08200FCC66F /* CountryPassBack.swift */,
+				DA88753F1EF139F400D360B8 /* PersonPassBack.swift */,
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
 		DAD752211EADAA7C0018FA60 = {
 			isa = PBXGroup;
 			children = (
@@ -251,6 +266,7 @@
 		DAD7522C1EADAA7C0018FA60 /* FireWarden */ = {
 			isa = PBXGroup;
 			children = (
+				DA8875411EF139FE00D360B8 /* Protocols */,
 				DA1130251EC451F7007059C8 /* Classes */,
 				DA30D2B81EB8625200D6ACAF /* Icons */,
 				DAFCD34D1EB097E80055DAD5 /* Images */,
@@ -309,6 +325,7 @@
 				DA402D981ECECC0F00C3E835 /* WardensTableViewController.swift */,
 				DA77FC281EEF8BDD00FCC66F /* CountriesTableViewController.swift */,
 				DA77FC2A1EEF8CA300FCC66F /* CountriesDetailViewController.swift */,
+				DA88753B1EF0E78A00D360B8 /* PersonDetailViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -508,11 +525,14 @@
 				DAFCD3471EB081E00055DAD5 /* RegisterNavigationController.swift in Sources */,
 				DAFCD34C1EB0838B0055DAD5 /* PersonRegistrationTableViewController.swift in Sources */,
 				DA77FC2D1EEFD08200FCC66F /* CountryPassBack.swift in Sources */,
+				DA88753E1EF110AC00D360B8 /* Person.swift in Sources */,
 				DA9403A71EB1F4ED00092DCC /* PersonListTableViewController.swift in Sources */,
 				DA9403A91EB1F53500092DCC /* PersonListDetailViewController.swift in Sources */,
 				DACDD5F41ED33DA900414373 /* Country.swift in Sources */,
 				DA30D2B11EB834E800D6ACAF /* SettingsNavigationController.swift in Sources */,
+				DA8875401EF139F500D360B8 /* PersonPassBack.swift in Sources */,
 				DAAB0ECA1EE16D7800AE8978 /* PassDataBack.swift in Sources */,
+				DA88753C1EF0E78A00D360B8 /* PersonDetailViewController.swift in Sources */,
 				DA30D2B31EB8350D00D6ACAF /* SettingsTableViewController.swift in Sources */,
 				DA30D2B71EB8370D00D6ACAF /* SettingDetailsViewController.swift in Sources */,
 				DAFCD3451EB073160055DAD5 /* LoginViewController.swift in Sources */,
