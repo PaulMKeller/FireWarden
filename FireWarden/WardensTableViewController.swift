@@ -10,6 +10,10 @@ import UIKit
 
 class WardensTableViewController: UITableViewController {
 
+    @IBAction func addTapped(_ sender: Any) {
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

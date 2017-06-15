@@ -738,7 +738,7 @@
             </objects>
             <point key="canvasLocation" x="3704.8000000000002" y="3108.3958020989508"/>
         </scene>
-        <!--Wardens Table View Controller-->
+        <!--Wardens-->
         <scene sceneID="52f-cp-Lin">
             <objects>
                 <tableViewController id="f4l-Pb-SAx" customClass="WardensTableViewController" customModule="FireWarden" customModuleProvider="target" sceneMemberID="viewController">
@@ -747,12 +747,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="wardenIdentifier" id="f8d-ve-qAF">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="wardenIdentifier" textLabel="RQy-CR-dyk" detailTextLabel="HTe-r7-0ez" style="IBUITableViewCellStyleSubtitle" id="f8d-ve-qAF">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="f8d-ve-qAF" id="oAG-XP-wxF">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="RQy-CR-dyk">
+                                            <rect key="frame" x="15" y="4" width="34" height="21"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HTe-r7-0ez">
+                                            <rect key="frame" x="15" y="25" width="44" height="15"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -761,10 +777,76 @@
                             <outlet property="delegate" destination="f4l-Pb-SAx" id="xep-MP-C2R"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Wardens" id="aKv-iF-aVI">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="Gyd-4K-90d"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="KEo-Iy-Djx">
+                            <connections>
+                                <action selector="addTapped:" destination="f4l-Pb-SAx" id="5tO-Wh-Ijb"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="KbJ-Au-Eha" kind="show" identifier="wardenDetailSegue" id="ISh-pE-Wur"/>
+                        <segue destination="KbJ-Au-Eha" kind="show" identifier="addWardenSegue" id="eSa-jl-yyM"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JBA-bQ-o8f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2889" y="2341"/>
+        </scene>
+        <!--Warden-->
+        <scene sceneID="T5j-Ua-hde">
+            <objects>
+                <viewController id="KbJ-Au-Eha" customClass="WardenDetailViewController" customModule="FireWarden" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="lN2-gL-WaT"/>
+                        <viewControllerLayoutGuide type="bottom" id="Opz-7a-YhU"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rAD-aT-bax">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N5X-Gq-6wi">
+                                <rect key="frame" x="0.0" y="126" width="375" height="140"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Warden:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Sa-hD-cf5">
+                                <rect key="frame" x="16" y="97" width="343" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Responsible For:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="neO-k4-VRo">
+                                <rect key="frame" x="16" y="274" width="343" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Pd-10-XZQ">
+                                <rect key="frame" x="0.0" y="303" width="375" height="140"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </pickerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Warden" id="WGn-ag-AY9">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="gw1-B2-vXu"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="PHz-ow-6Tb">
+                            <connections>
+                                <action selector="saveTapped:" destination="KbJ-Au-Eha" id="gUE-6r-vks"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="wardenLocation" destination="1Pd-10-XZQ" id="OfJ-Er-xck"/>
+                        <outlet property="wardenPicker" destination="N5X-Gq-6wi" id="vcI-BP-hxe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BiD-Io-duP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3660" y="2339.2803598200903"/>
         </scene>
         <!--Location Detail-->
         <scene sceneID="TYq-LO-TTt">
@@ -909,10 +991,11 @@
         <image name="Settings.png" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Lrl-9x-kXI"/>
-        <segue reference="VAp-c4-P77"/>
         <segue reference="fQ0-KI-HWq"/>
+        <segue reference="VAp-c4-P77"/>
+        <segue reference="Lrl-9x-kXI"/>
         <segue reference="1sx-nE-0Oa"/>
         <segue reference="rYu-Nb-nos"/>
+        <segue reference="eSa-jl-yyM"/>
     </inferredMetricsTieBreakers>
 </document>
