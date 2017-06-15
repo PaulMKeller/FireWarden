@@ -23,8 +23,8 @@ $postLastName = $_POST['LastName'];
 $postGender = $_POST['Gender'];
 $postLocationID = $_POST['LocationID'];
 
-$tsql = "EXEC sp_Person_Update @PersonID=?, @FirstName=?, @LastName=?, @Gender=? @LocationID=?";
-$params = array($postPersonID, $postFirstname, $postLastName, $postGender, $postLocationID);
+$tsql = "EXEC sp_Person_Update @PersonID=?, @FirstName=?, @LastName=?, @Gender=?,  @LocationID=?";
+$params = array($postPersonID, $postFirstName, $postLastName, $postGender, $postLocationID);
 $stmt = sqlsrv_query( $conn, $tsql, $params);
  
 if( $stmt === false ) {

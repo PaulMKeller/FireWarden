@@ -198,10 +198,6 @@ class SettingDetailsViewController: UIViewController, UIPickerViewDelegate, UIPi
         
         task.resume()
     }
-    
-    func prepareForLocationDetailSegue() {
-        
-    }
 
     /*
     // MARK: - Navigation

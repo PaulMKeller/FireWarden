@@ -15,6 +15,11 @@ class PeopleTableViewController: UITableViewController, PersonPassBackDelegate {
     var currentPerson = Person()
     var selectedRowIndex: Int32! = 0
 
+    @IBAction func addTapped(_ sender: Any) {
+        prepareForPersonDetailSegue(segueIdentifier: "addPersonSegue")
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -48,7 +53,7 @@ class PeopleTableViewController: UITableViewController, PersonPassBackDelegate {
         let currentPerson = self.peopleArray[indexPath.row]
         
         cell.textLabel?.text = currentPerson.firstName + " " + currentPerson.lastName
-        cell.detailTextLabel?.text = currentPerson.personLocation.country + " - " + currentPerson.personLocation.locationName
+        cell.detailTextLabel?.text = currentPerson.personLocation.country + " - " + currentPerson.personLocation.locationName + " (" + currentPerson.personLocation.floor + ")"
 
         return cell
     }

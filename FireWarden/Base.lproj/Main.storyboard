@@ -542,7 +542,11 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="People" id="39s-5r-s00">
                         <barButtonItem key="backBarButtonItem" title="Back" id="n1J-aQ-ALr"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="jev-by-LKW"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="jev-by-LKW">
+                            <connections>
+                                <action selector="addTapped:" destination="vwe-2B-29R" id="Fpc-SN-jKN"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <segue destination="u5L-x7-Fgk" kind="show" identifier="personDetailSegue" id="jhM-1a-Ss3"/>
@@ -653,7 +657,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bOx-U1-5Yt" id="gzm-ue-fVQ">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="A Country" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ei4-9D-NvM">
