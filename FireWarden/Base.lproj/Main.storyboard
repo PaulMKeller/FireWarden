@@ -806,7 +806,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N5X-Gq-6wi">
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="wardenPersonPicker" translatesAutoresizingMaskIntoConstraints="NO" id="N5X-Gq-6wi">
                                 <rect key="frame" x="0.0" y="126" width="375" height="140"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             </pickerView>
@@ -824,7 +824,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Pd-10-XZQ">
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="wardenLocationPicker" translatesAutoresizingMaskIntoConstraints="NO" id="1Pd-10-XZQ">
                                 <rect key="frame" x="0.0" y="303" width="375" height="140"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             </pickerView>

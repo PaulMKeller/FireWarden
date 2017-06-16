@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FireWarden/SettingsTableViewController.swift"
-            timestampString = "519123104.248646"
+            timestampString = "519300063.940446"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "198"
-            endingLineNumber = "198"
+            startingLineNumber = "200"
+            endingLineNumber = "200"
             landmarkName = "prepareForPeopleSegue()"
             landmarkType = "7">
          </BreakpointContent>
