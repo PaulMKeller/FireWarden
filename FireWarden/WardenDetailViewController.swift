@@ -36,6 +36,12 @@ class WardenDetailViewController: UIViewController, UIPickerViewDelegate, UIPick
         
         self.wardenLocation.delegate = self
         self.wardenLocation.dataSource = self
+        
+        print("WardenID = " + String(currentWarden.wardenID))
+        print("PersonID = " + String(currentWardenPerson.personID))
+        print("LocationID = " + String(currentWardenLocation.locationID))
+        currentWardenPerson = currentWarden.wardenPerson
+        currentWardenLocation = currentWarden.wardenLocation
         loadData()
     }
 
@@ -46,14 +52,14 @@ class WardenDetailViewController: UIViewController, UIPickerViewDelegate, UIPick
     
     func loadData() {
         
-        if isExistingRecord==false {
+        if isExistingRecord==true {
             var i:Int
 
             i = 0
             for obj in personArray {
                 if obj.personID==currentWardenPerson.personID {
                     self.wardenPicker.selectRow(i, inComponent: 0, animated: true)
-                    self.wardenPicker.isUserInteractionEnabled = false
+                    //self.wardenPicker.isUserInteractionEnabled = false
                     break
                 }
                 i += 1
@@ -67,6 +73,16 @@ class WardenDetailViewController: UIViewController, UIPickerViewDelegate, UIPick
                 }
                 i += 1
             }
+        }
+        else
+        {
+            //self.wardenPicker.selectRow(1, inComponent: 0, animated: true)
+            //self.wardenLocation.selectRow(1, inComponent: 0, animated: true)
+            currentWardenPerson = personArray[0]
+            currentWarden.wardenPerson = currentWardenPerson
+            
+            currentWardenLocation = locationArray[0]
+            currentWarden.wardenLocation = currentWardenLocation
         }
     }
     
@@ -158,8 +174,9 @@ class WardenDetailViewController: UIViewController, UIPickerViewDelegate, UIPick
         let url = URL(string: "http://www.gratuityp.com/pk/WardenUpdate.php")
         var request = URLRequest(url: url!)
         request.httpMethod = "POST"
-        var postString = "PersonID=" + String(currentWardenPerson.personID)
+        var postString = "WardenID=" + String(currentWarden.wardenID)
         postString += "&LocationID=" + String(currentWardenLocation.locationID)
+        postString += "&PersonID=" + String(currentWardenPerson.personID)
         postString = postString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
         print(postString)
         request.httpBody = postString.data(using: .utf8)
@@ -240,13 +257,13 @@ class WardenDetailViewController: UIViewController, UIPickerViewDelegate, UIPick
                             let newPerson = Person()
                             newPerson.personID = newRecordArray["PersonID"] as! Int32
                             newPerson.firstName = newRecordArray["FirstName"] as! String
-                            newPerson.lastName = newRecordArray["lastName"] as! String
+                            newPerson.lastName = newRecordArray["LastName"] as! String
                             newPerson.gender = newRecordArray["Gender"] as! String
                             newPerson.personLocation = newPersonLocation
                             
                             self.currentWardenPerson = newPerson
                             
-                            self.currentWarden.wardenID = Int32(newRecordArray["WardenID"] as! String)!
+                            self.currentWarden.wardenID = newRecordArray["WardenID"] as! Int32
                             self.currentWarden.wardenPerson = self.currentWardenPerson
                             self.currentWarden.wardenLocation = self.currentWardenLocation
                             

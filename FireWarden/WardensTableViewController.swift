@@ -162,9 +162,9 @@ class WardensTableViewController: UITableViewController, WardenPassBackDelegate 
                             self.peopleArray.removeAll()
                             for item in myJson {
                                 let obj = item as! NSDictionary
-                                let locationDetails = Location(locationID: obj["LocationID"] as! Int32, locationName: obj["LocationName"] as! String, floor: obj["Floor"] as! String, countryID: obj["CountryID"] as! Int32, country: obj["CountryName"] as! String)
+                                let locationDetails = Location(locationID: obj["LocationID"] as! Int32, locationName: obj["LocationName"] as! String, floor: obj["Floor"] as! String, countryID: obj["CountryID"] as! Int32, country: obj["Country"] as! String)
                                 
-                                let personDetails = Person(personID: obj["PersonID"] as! Int32, firstName: obj["FirstName"] as! String, lastName: obj["LastNight"] as! String, gender: obj["Gender"] as! String, personLocation: locationDetails)
+                                let personDetails = Person(personID: obj["PersonID"] as! Int32, firstName: obj["FirstName"] as! String, lastName: obj["LastName"] as! String, gender: obj["Gender"] as! String, personLocation: locationDetails)
                                 
                                 self.peopleArray.append(personDetails)
                             }
@@ -204,10 +204,10 @@ class WardensTableViewController: UITableViewController, WardenPassBackDelegate 
         nextScene.personArray = self.peopleArray
         nextScene.locationArray = self.locationsArray
         nextScene.delegate = self
-        if segue.identifier == "personDetailSegue" {
+        if segue.identifier == "wardenDetailSegue" {
             nextScene.currentWarden = self.currentWarden
             nextScene.existingArrayIndex = self.selectedRowIndex
-        } else if segue.identifier == "addPersonSegue" {
+        } else if segue.identifier == "addWardenSegue" {
             nextScene.currentWarden = Warden()
             nextScene.isExistingRecord = false
             nextScene.existingArrayIndex = 0
