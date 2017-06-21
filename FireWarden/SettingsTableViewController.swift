@@ -15,6 +15,7 @@ class SettingsTableViewController: UITableViewController {
     var countriesArray = [Country]()
     var peopleArray = [Person]()
     var wardenArray = [Warden]()
+    var settingTypesArray = [String]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -163,8 +164,9 @@ class SettingsTableViewController: UITableViewController {
         } else if segue.identifier == "wardensSegue" {
             let nextScene = segue.destination as! WardensTableViewController
             nextScene.wardenArray = self.wardenArray
-        } else if segue.identifier == "generalSegue" {
-            // Do general
+        } else if segue.identifier == "generalSettingsSegue" {
+            let nextScene = segue.destination as! GeneralTableViewController
+            nextScene.settingsData = self.settingTypesArray
         } else if segue.identifier == "loginsSegue" {
             // Do logins
         } else if segue.identifier == "countriesSegue" {
@@ -312,7 +314,69 @@ class SettingsTableViewController: UITableViewController {
     }
     
     func prepareForGeneralSegue() {
+        let waitingView = showWaitingView(tableView: tableView)
         
+        let url = URL(string: "http://www.gratuityp.com/pk/GetData.php")
+        var request = URLRequest(url: url!)
+        request.httpMethod = "POST"
+        let postString = "ScriptName=sp_SettingsType_GetList&ParamString=''"
+        request.httpBody = postString.data(using: .utf8)
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if error != nil
+            {
+                print(error!)
+            }
+            else
+            {
+                defer {
+                    DispatchQueue.main.async {
+                        waitingView.removeFromSuperview()
+                    }
+                }
+                if let content=data
+                {
+                    do
+                    {
+                        let myJson = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as! NSArray
+                        print(myJson)
+                        if myJson.count > 0
+                        {
+                            self.settingTypesArray.removeAll()
+                            for item in myJson {
+                                let obj = item as! NSDictionary
+                                let settingType = obj["SettingType"] as! String
+                                print(settingType)
+                                self.settingTypesArray.append(settingType)
+                            }
+                            DispatchQueue.main.async(execute: {
+                                //self.activityIndicator.stopAnimating()
+                                //self.errorText.text = "Invalid Credentials Supplied"
+                                print("Successful Setting Type Retrieval")
+                                
+                                //Pass the locations array to the next view
+                                self.performSegue(withIdentifier: "generalSettingsSegue", sender: self)
+                                
+                            })
+                        }
+                        else
+                        {
+                            DispatchQueue.main.async(execute: {
+                                //self.activityIndicator.stopAnimating()
+                                //self.errorText.text = "Invalid Credentials Supplied"
+                                print("Un-Successful Location Retrieval")
+                            })
+                        }
+                        
+                    }
+                    catch
+                    {
+                        print(error)
+                    }
+                }
+            }
+        }
+        
+        task.resume()
     }
     
     func prepareForLoginsSegue() {

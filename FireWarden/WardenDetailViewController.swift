@@ -59,7 +59,7 @@ class WardenDetailViewController: UIViewController, UIPickerViewDelegate, UIPick
             for obj in personArray {
                 if obj.personID==currentWardenPerson.personID {
                     self.wardenPicker.selectRow(i, inComponent: 0, animated: true)
-                    //self.wardenPicker.isUserInteractionEnabled = false
+                    self.wardenPicker.isUserInteractionEnabled = false
                     break
                 }
                 i += 1

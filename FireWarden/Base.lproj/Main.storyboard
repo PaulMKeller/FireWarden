@@ -437,6 +437,7 @@
                         <segue destination="vwe-2B-29R" kind="show" identifier="peopleSegue" id="1R7-HB-mbk"/>
                         <segue destination="f4l-Pb-SAx" kind="show" identifier="wardensSegue" id="drV-md-XhJ"/>
                         <segue destination="och-er-w5M" kind="show" identifier="countriesSegue" id="pT6-YF-WYP"/>
+                        <segue destination="V9z-Qu-7RI" kind="show" identifier="generalSettingsSegue" id="Ehu-HG-BqE"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vgV-Sq-30k" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -499,7 +500,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nqQ-vS-iW6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2891" y="1004"/>
+            <point key="canvasLocation" x="1193" y="1736"/>
         </scene>
         <!--People-->
         <scene sceneID="zMC-3y-9JJ">
@@ -555,7 +556,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zd5-vX-vVu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2890" y="1667"/>
+            <point key="canvasLocation" x="1914" y="1736"/>
         </scene>
         <!--Person Details-->
         <scene sceneID="ogr-Ng-GcG">
@@ -642,7 +643,50 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6mH-1w-YJf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3660" y="1665.5172413793105"/>
+            <point key="canvasLocation" x="1833" y="2531"/>
+        </scene>
+        <!--General-->
+        <scene sceneID="wZa-0Y-3WN">
+            <objects>
+                <tableViewController id="V9z-Qu-7RI" customClass="GeneralTableViewController" customModule="FireWarden" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="qOg-91-PqJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="settingsCell" textLabel="hRB-rt-9FP" style="IBUITableViewCellStyleDefault" id="0aG-g1-sIW">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0aG-g1-sIW" id="a8h-NX-t4X">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hRB-rt-9FP">
+                                            <rect key="frame" x="15" y="0.0" width="345" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="V9z-Qu-7RI" id="kSP-N7-9fJ"/>
+                            <outlet property="delegate" destination="V9z-Qu-7RI" id="bYG-er-uUv"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="General" id="YS0-Fy-dtX">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="afs-mS-8mc"/>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="66M-ll-Mfo" kind="show" identifier="emailListSegue" id="1Gh-bd-aLY"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Lrh-Kp-RVX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4311" y="1736"/>
         </scene>
         <!--Countries-->
         <scene sceneID="vPZ-s7-zV7">
@@ -691,7 +735,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9YO-f3-jbZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2889" y="3110"/>
+            <point key="canvasLocation" x="3609" y="1736"/>
         </scene>
         <!--Country-->
         <scene sceneID="PdR-Zy-ubE">
@@ -736,7 +780,90 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9jf-mo-nzO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3704.8000000000002" y="3108.3958020989508"/>
+            <point key="canvasLocation" x="3505" y="2531"/>
+        </scene>
+        <!--Email List-->
+        <scene sceneID="usr-tQ-Km2">
+            <objects>
+                <tableViewController id="66M-ll-Mfo" customClass="EmailListTableViewController" customModule="FireWarden" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="VXj-5c-njF">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="emailDetailCell" id="pKK-5R-Rwl">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pKK-5R-Rwl" id="2Ea-cf-EGf">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="66M-ll-Mfo" id="jUn-oi-pWk"/>
+                            <outlet property="delegate" destination="66M-ll-Mfo" id="9Z6-H4-FIF"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Email List" id="wQ7-8x-RLs">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="abi-pr-6nr">
+                            <connections>
+                                <segue destination="bJP-bX-YAx" kind="show" identifier="addEmailSegue" id="1ng-50-7lB"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="bJP-bX-YAx" kind="show" identifier="emailDetailSegue" id="0sK-5F-vdu"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="P7l-U8-mjH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4311" y="2531"/>
+        </scene>
+        <!--Email Details-->
+        <scene sceneID="kZ5-dN-Eeb">
+            <objects>
+                <viewController id="bJP-bX-YAx" customClass="EmailDetailListViewController" customModule="FireWarden" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="go5-R9-aKG"/>
+                        <viewControllerLayoutGuide type="bottom" id="bEX-KL-4a4"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ssE-Ht-fZf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Email Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yxa-7T-DDB">
+                                <rect key="frame" x="16" y="113" width="343" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GO4-mu-FuZ">
+                                <rect key="frame" x="16" y="142" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Email Details" prompt="Send Register Lists Here" id="d0K-PT-Qpw">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="Uai-27-hyl"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="aSD-Re-Wv1">
+                            <connections>
+                                <action selector="saveTapped:" destination="bJP-bX-YAx" id="KkT-rd-aMO"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="emailAddressText" destination="GO4-mu-FuZ" id="M97-U9-PN5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LYu-tb-PY8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4309.6000000000004" y="3241.5292353823093"/>
         </scene>
         <!--Wardens-->
         <scene sceneID="52f-cp-Lin">
@@ -792,7 +919,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JBA-bQ-o8f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2889" y="2341"/>
+            <point key="canvasLocation" x="2854" y="1736"/>
         </scene>
         <!--Warden-->
         <scene sceneID="T5j-Ua-hde">
@@ -846,7 +973,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BiD-Io-duP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3660" y="2339.2803598200903"/>
+            <point key="canvasLocation" x="2721" y="2531"/>
         </scene>
         <!--Location Detail-->
         <scene sceneID="TYq-LO-TTt">
@@ -921,7 +1048,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FmZ-ZA-19N" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3660" y="1003.4482758620691"/>
+            <point key="canvasLocation" x="1031" y="2531"/>
         </scene>
         <!--Register-->
         <scene sceneID="5mZ-G5-Wnd">
@@ -991,11 +1118,12 @@
         <image name="Settings.png" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="rYu-Nb-nos"/>
+        <segue reference="1sx-nE-0Oa"/>
         <segue reference="fQ0-KI-HWq"/>
+        <segue reference="eSa-jl-yyM"/>
+        <segue reference="0sK-5F-vdu"/>
         <segue reference="VAp-c4-P77"/>
         <segue reference="Lrl-9x-kXI"/>
-        <segue reference="1sx-nE-0Oa"/>
-        <segue reference="rYu-Nb-nos"/>
-        <segue reference="eSa-jl-yyM"/>
     </inferredMetricsTieBreakers>
 </document>
