@@ -8,11 +8,16 @@
 
 import UIKit
 
-class EmailListTableViewController: UITableViewController {
+class EmailListTableViewController: UITableViewController, SettingPassBackDelegate {
 
-    var emailAddresses = [String]()
+    var emailAddresses = [SettingTypeObj]()
+    var currentEmail = SettingTypeObj()
     var selectedRowIndex: Int32! = 0
     var isExistingRecord: Bool = true
+    
+    @IBAction func addTapped(_ sender: Any) {
+        prepareForEmailDetailSegue(segueIdentifier: "addEmailSegue")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,16 +43,56 @@ class EmailListTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 1
+        return emailAddresses.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "emailCell", for: indexPath)
 
         // Configure the cell...
+        let cellSetting: SettingTypeObj = emailAddresses[indexPath.row]
+        cell.textLabel?.text = cellSetting.settingValue
 
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        currentEmail = emailAddresses[indexPath.row]
+        self.selectedRowIndex = Int32(indexPath.row)
+        prepareForEmailDetailSegue(segueIdentifier: "emailDetailSegue")
+    }
+    
+    func prepareForEmailDetailSegue(segueIdentifier: String) {
+        self.performSegue(withIdentifier: segueIdentifier, sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let nextScene = segue.destination as! EmailDetailListViewController
+        nextScene.delegate = self
+        if segue.identifier == "emailDetailSegue" {
+            nextScene.currentEmail = self.currentEmail
+            nextScene.existingArrayIndex = self.selectedRowIndex
+            nextScene.isExistingRecord = true
+        } else if segue.identifier == "addEmailSegue" {
+            nextScene.currentEmail = SettingTypeObj()
+            nextScene.isExistingRecord = false
+            nextScene.existingArrayIndex = 0
+        }
+    }
+    
+    func passSettingDataBack(isNewRecord: Bool, arrayIndex: Int32, objectToPass: SettingTypeObj) {
+        // Add a UITableViewCell to the table and add the new location to the locations array
+        if isNewRecord {
+            //do new record addition of cell
+            emailAddresses.append(objectToPass)
+            tableView.reloadData()
+        } else {
+            // Update the existing cell and the array
+            emailAddresses.remove(at: Int(arrayIndex))
+            emailAddresses.insert(objectToPass, at: Int(arrayIndex))
+            tableView.reloadData()
+        }
     }
 
     /*

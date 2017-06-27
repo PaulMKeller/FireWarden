@@ -701,7 +701,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bOx-U1-5Yt" id="gzm-ue-fVQ">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="A Country" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ei4-9D-NvM">
@@ -791,11 +791,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="emailDetailCell" id="pKK-5R-Rwl">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="emailCell" id="pKK-5R-Rwl">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pKK-5R-Rwl" id="2Ea-cf-EGf">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -808,6 +808,7 @@
                     <navigationItem key="navigationItem" title="Email List" id="wQ7-8x-RLs">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="abi-pr-6nr">
                             <connections>
+                                <action selector="addTapped:" destination="66M-ll-Mfo" id="bJH-Mq-0ht"/>
                                 <segue destination="bJP-bX-YAx" kind="show" identifier="addEmailSegue" id="1ng-50-7lB"/>
                             </connections>
                         </barButtonItem>
@@ -1118,12 +1119,12 @@
         <image name="Settings.png" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="rYu-Nb-nos"/>
-        <segue reference="1sx-nE-0Oa"/>
-        <segue reference="fQ0-KI-HWq"/>
-        <segue reference="eSa-jl-yyM"/>
-        <segue reference="0sK-5F-vdu"/>
         <segue reference="VAp-c4-P77"/>
         <segue reference="Lrl-9x-kXI"/>
+        <segue reference="eSa-jl-yyM"/>
+        <segue reference="1sx-nE-0Oa"/>
+        <segue reference="rYu-Nb-nos"/>
+        <segue reference="fQ0-KI-HWq"/>
+        <segue reference="0sK-5F-vdu"/>
     </inferredMetricsTieBreakers>
 </document>

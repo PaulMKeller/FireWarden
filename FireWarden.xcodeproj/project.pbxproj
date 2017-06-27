@@ -10,6 +10,8 @@
 		DA171C2A1EF2A0500013A8D6 /* Warden.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA171C291EF2A0500013A8D6 /* Warden.swift */; };
 		DA171C2C1EF2A1610013A8D6 /* WardenPassBack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA171C2B1EF2A1610013A8D6 /* WardenPassBack.swift */; };
 		DA171C2E1EF2A26B0013A8D6 /* WardenDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA171C2D1EF2A26B0013A8D6 /* WardenDetailViewController.swift */; };
+		DA2853261F026B50001816AC /* EmailPassback.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2853251F026B50001816AC /* EmailPassback.swift */; };
+		DA2853281F026E80001816AC /* SettingTypeObj.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2853271F026E80001816AC /* SettingTypeObj.swift */; };
 		DA30D2B11EB834E800D6ACAF /* SettingsNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA30D2B01EB834E800D6ACAF /* SettingsNavigationController.swift */; };
 		DA30D2B31EB8350D00D6ACAF /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA30D2B21EB8350D00D6ACAF /* SettingsTableViewController.swift */; };
 		DA30D2B51EB8364200D6ACAF /* SettingTypeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA30D2B41EB8364200D6ACAF /* SettingTypeTableViewController.swift */; };
@@ -100,6 +102,8 @@
 		DA171C291EF2A0500013A8D6 /* Warden.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Warden.swift; sourceTree = "<group>"; };
 		DA171C2B1EF2A1610013A8D6 /* WardenPassBack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WardenPassBack.swift; sourceTree = "<group>"; };
 		DA171C2D1EF2A26B0013A8D6 /* WardenDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WardenDetailViewController.swift; sourceTree = "<group>"; };
+		DA2853251F026B50001816AC /* EmailPassback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailPassback.swift; sourceTree = "<group>"; };
+		DA2853271F026E80001816AC /* SettingTypeObj.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingTypeObj.swift; sourceTree = "<group>"; };
 		DA30D2B01EB834E800D6ACAF /* SettingsNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsNavigationController.swift; sourceTree = "<group>"; };
 		DA30D2B21EB8350D00D6ACAF /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		DA30D2B41EB8364200D6ACAF /* SettingTypeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingTypeTableViewController.swift; sourceTree = "<group>"; };
@@ -209,6 +213,7 @@
 				DACDD5F31ED33DA900414373 /* Country.swift */,
 				DA88753D1EF110AC00D360B8 /* Person.swift */,
 				DA171C291EF2A0500013A8D6 /* Warden.swift */,
+				DA2853271F026E80001816AC /* SettingTypeObj.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -252,6 +257,7 @@
 				DA77FC2C1EEFD08200FCC66F /* CountryPassBack.swift */,
 				DA88753F1EF139F400D360B8 /* PersonPassBack.swift */,
 				DA171C2B1EF2A1610013A8D6 /* WardenPassBack.swift */,
+				DA2853251F026B50001816AC /* EmailPassback.swift */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";
@@ -539,10 +545,12 @@
 				DA30D2B51EB8364200D6ACAF /* SettingTypeTableViewController.swift in Sources */,
 				DA402D9B1ECED8F500C3E835 /* Location.swift in Sources */,
 				DA402D991ECECC0F00C3E835 /* WardensTableViewController.swift in Sources */,
+				DA2853261F026B50001816AC /* EmailPassback.swift in Sources */,
 				DAD1AD661EC5945000E9834C /* Login.swift in Sources */,
 				DAFCD3471EB081E00055DAD5 /* RegisterNavigationController.swift in Sources */,
 				DAFCD34C1EB0838B0055DAD5 /* PersonRegistrationTableViewController.swift in Sources */,
 				DA171C2A1EF2A0500013A8D6 /* Warden.swift in Sources */,
+				DA2853281F026E80001816AC /* SettingTypeObj.swift in Sources */,
 				DA77FC2D1EEFD08200FCC66F /* CountryPassBack.swift in Sources */,
 				DA88753E1EF110AC00D360B8 /* Person.swift in Sources */,
 				DA9403A71EB1F4ED00092DCC /* PersonListTableViewController.swift in Sources */,

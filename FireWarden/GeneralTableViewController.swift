@@ -11,7 +11,7 @@ import UIKit
 class GeneralTableViewController: UITableViewController {
     
     var settingsData = [String]()
-    var emailAddresses = [String]()
+    var emailAddresses = [SettingTypeObj]()
     var selectedRowIndex: Int32! = 0
 
     override func viewDidLoad() {
@@ -84,11 +84,10 @@ class GeneralTableViewController: UITableViewController {
     func prepareForEmailSegue(settingType: String) {
         let waitingView = showWaitingView(tableView: tableView)
         
-        let url = URL(string: "http://www.gratuityp.com/pk/GetData.php")
+        let url = URL(string: "http://www.gratuityp.com/pk/SettingsGet.php")
         var request = URLRequest(url: url!)
         request.httpMethod = "POST"
-        var postString = "ScriptName=sp_SettingType_Get"
-        postString += "&SettingType=" + settingType
+        var postString = "SettingType=" + settingType
         postString = postString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
         print(postString)
         request.httpBody = postString.data(using: .utf8)
@@ -115,17 +114,22 @@ class GeneralTableViewController: UITableViewController {
                             self.emailAddresses.removeAll()
                             for item in myJson {
                                 let obj = item as! NSDictionary
-                                let emailAddress = obj["SettingValue"] as! String
+                                let emailAddress = SettingTypeObj()
+                                emailAddress.settingID = obj["SettingID"] as! Int32
+                                emailAddress.settingType = obj["SettingType"] as! String
+                                emailAddress.settingKey = obj["SettingKey"] as! String
+                                emailAddress.settingValue = obj["SettingValue"] as! String
+                                
                                 print(emailAddress)
                                 self.emailAddresses.append(emailAddress)
                             }
                             DispatchQueue.main.async(execute: {
                                 //self.activityIndicator.stopAnimating()
                                 //self.errorText.text = "Invalid Credentials Supplied"
-                                print("Successful Location Retrieval")
+                                print("Successful Email Retrieval")
                                 
                                 //Pass the locations array to the next view
-                                self.performSegue(withIdentifier: "emailSegue", sender: self)
+                                self.performSegue(withIdentifier: "emailListSegue", sender: self)
                                 
                             })
                         }
@@ -134,7 +138,7 @@ class GeneralTableViewController: UITableViewController {
                             DispatchQueue.main.async(execute: {
                                 //self.activityIndicator.stopAnimating()
                                 //self.errorText.text = "Invalid Credentials Supplied"
-                                print("Un-Successful Location Retrieval")
+                                print("Un-Successful Email Retrieval")
                             })
                         }
                         
@@ -156,13 +160,14 @@ class GeneralTableViewController: UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let nextScene = segue.destination as! EmailListTableViewController
-        if segue.identifier == "emailSegue" {
+        if segue.identifier == "emailListSegue" {
             nextScene.emailAddresses = self.emailAddresses
             nextScene.isExistingRecord = true
-        } else if segue.identifier == "addEmailSegue" {
+        }
+        /*else if segue.identifier == "addEmailSegue" {
             nextScene.emailAddresses = [String]()
             nextScene.isExistingRecord = false
-        }
+        }*/
     }
     
     private func showWaitingView(tableView: UITableView) -> UIView {
