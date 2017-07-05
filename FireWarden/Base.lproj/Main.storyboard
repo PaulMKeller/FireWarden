@@ -438,6 +438,7 @@
                         <segue destination="f4l-Pb-SAx" kind="show" identifier="wardensSegue" id="drV-md-XhJ"/>
                         <segue destination="och-er-w5M" kind="show" identifier="countriesSegue" id="pT6-YF-WYP"/>
                         <segue destination="V9z-Qu-7RI" kind="show" identifier="generalSettingsSegue" id="Ehu-HG-BqE"/>
+                        <segue destination="4dS-mf-0AZ" kind="show" identifier="loginsSegue" id="KCx-11-YW1"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vgV-Sq-30k" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -688,6 +689,40 @@
             </objects>
             <point key="canvasLocation" x="4311" y="1736"/>
         </scene>
+        <!--Logins View Controller-->
+        <scene sceneID="E1o-VI-dke">
+            <objects>
+                <viewController id="4dS-mf-0AZ" customClass="LoginsViewController" customModule="FireWarden" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="sNs-tf-d8c"/>
+                        <viewControllerLayoutGuide type="bottom" id="0IO-Kh-gdP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wbb-PG-AJe">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This functionality is not yet implemented" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hDM-uw-a1l">
+                                <rect key="frame" x="70" y="291" width="235" height="85"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="85" id="jKJ-kZ-9IR"/>
+                                    <constraint firstAttribute="width" constant="235" id="zq4-oK-Bl1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="hDM-uw-a1l" firstAttribute="centerX" secondItem="wbb-PG-AJe" secondAttribute="centerX" id="LHW-wj-pah"/>
+                            <constraint firstItem="hDM-uw-a1l" firstAttribute="centerY" secondItem="wbb-PG-AJe" secondAttribute="centerY" id="iZ1-rI-47I"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WaT-7e-fHd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5031" y="1736"/>
+        </scene>
         <!--Countries-->
         <scene sceneID="vPZ-s7-zV7">
             <objects>
@@ -795,7 +830,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pKK-5R-Rwl" id="2Ea-cf-EGf">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -834,14 +869,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Email Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yxa-7T-DDB">
-                                <rect key="frame" x="16" y="113" width="343" height="21"/>
+                                <rect key="frame" x="16" y="211" width="343" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GO4-mu-FuZ">
-                                <rect key="frame" x="16" y="142" width="343" height="30"/>
+                                <rect key="frame" x="16" y="240" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Recipient" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GGx-wq-Mys">
+                                <rect key="frame" x="16" y="115" width="343" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9o4-QK-xNy">
+                                <rect key="frame" x="16" y="156" width="343" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -860,6 +909,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="emailAddressText" destination="GO4-mu-FuZ" id="M97-U9-PN5"/>
+                        <outlet property="recipientKeyText" destination="9o4-QK-xNy" id="hcc-tO-TR5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LYu-tb-PY8" userLabel="First Responder" sceneMemberID="firstResponder"/>

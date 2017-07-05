@@ -47,6 +47,7 @@
 		DA402D971ECECBB900C3E835 /* PeopleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA402D961ECECBB900C3E835 /* PeopleTableViewController.swift */; };
 		DA402D991ECECC0F00C3E835 /* WardensTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA402D981ECECC0F00C3E835 /* WardensTableViewController.swift */; };
 		DA402D9B1ECED8F500C3E835 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA402D9A1ECED8F500C3E835 /* Location.swift */; };
+		DA6878421F0CF10A00BF6AF9 /* LoginsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6878411F0CF10A00BF6AF9 /* LoginsViewController.swift */; };
 		DA744D591ECC2B9300521EB8 /* Backlog.rtf in Resources */ = {isa = PBXBuildFile; fileRef = DA744D581ECC2B9300521EB8 /* Backlog.rtf */; };
 		DA77FC291EEF8BDD00FCC66F /* CountriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA77FC281EEF8BDD00FCC66F /* CountriesTableViewController.swift */; };
 		DA77FC2B1EEF8CA300FCC66F /* CountriesDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA77FC2A1EEF8CA300FCC66F /* CountriesDetailViewController.swift */; };
@@ -139,6 +140,7 @@
 		DA402D961ECECBB900C3E835 /* PeopleTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeopleTableViewController.swift; sourceTree = "<group>"; };
 		DA402D981ECECC0F00C3E835 /* WardensTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WardensTableViewController.swift; sourceTree = "<group>"; };
 		DA402D9A1ECED8F500C3E835 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		DA6878411F0CF10A00BF6AF9 /* LoginsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginsViewController.swift; sourceTree = "<group>"; };
 		DA744D581ECC2B9300521EB8 /* Backlog.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = Backlog.rtf; sourceTree = "<group>"; };
 		DA77FC281EEF8BDD00FCC66F /* CountriesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountriesTableViewController.swift; sourceTree = "<group>"; };
 		DA77FC2A1EEF8CA300FCC66F /* CountriesDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountriesDetailViewController.swift; sourceTree = "<group>"; };
@@ -350,6 +352,7 @@
 				DA31ABCF1EFA26DA00E9DA60 /* GeneralTableViewController.swift */,
 				DA31ABD11EFA2B0700E9DA60 /* EmailListTableViewController.swift */,
 				DA31ABD51EFA6B5300E9DA60 /* EmailDetailListViewController.swift */,
+				DA6878411F0CF10A00BF6AF9 /* LoginsViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -556,6 +559,7 @@
 				DA9403A71EB1F4ED00092DCC /* PersonListTableViewController.swift in Sources */,
 				DA9403A91EB1F53500092DCC /* PersonListDetailViewController.swift in Sources */,
 				DACDD5F41ED33DA900414373 /* Country.swift in Sources */,
+				DA6878421F0CF10A00BF6AF9 /* LoginsViewController.swift in Sources */,
 				DA30D2B11EB834E800D6ACAF /* SettingsNavigationController.swift in Sources */,
 				DA8875401EF139F500D360B8 /* PersonPassBack.swift in Sources */,
 				DAAB0ECA1EE16D7800AE8978 /* PassDataBack.swift in Sources */,

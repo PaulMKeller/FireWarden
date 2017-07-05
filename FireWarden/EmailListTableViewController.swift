@@ -76,6 +76,7 @@ class EmailListTableViewController: UITableViewController, SettingPassBackDelega
             nextScene.isExistingRecord = true
         } else if segue.identifier == "addEmailSegue" {
             nextScene.currentEmail = SettingTypeObj()
+            nextScene.currentEmail.settingType = "Email"
             nextScene.isExistingRecord = false
             nextScene.existingArrayIndex = 0
         }

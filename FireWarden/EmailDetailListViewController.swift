@@ -17,9 +17,11 @@ class EmailDetailListViewController: UIViewController {
     weak var delegate: SettingPassBackDelegate?
     
     @IBOutlet weak var emailAddressText: UITextField!
+    @IBOutlet weak var recipientKeyText: UITextField!
     
     @IBAction func saveTapped(_ sender: Any) {
         currentEmail.settingValue = emailAddressText.text!
+        currentEmail.settingKey = recipientKeyText.text!
         saveData()
     }
     
@@ -30,6 +32,7 @@ class EmailDetailListViewController: UIViewController {
         // Do any additional setup after loading the view.
         if isExistingRecord {
             emailAddressText.text = currentEmail.settingValue
+            recipientKeyText.text = currentEmail.settingKey
         }
     }
 
@@ -114,7 +117,7 @@ class EmailDetailListViewController: UIViewController {
                         {
                             let newRecordArray = myJson[0] as! NSDictionary
                             let newEmail = SettingTypeObj()
-                            newEmail.settingID = Int32(newRecordArray["SettingID"] as! String)!
+                            newEmail.settingID = newRecordArray["SettingID"] as! Int32
                             newEmail.settingType = newRecordArray["SettingType"] as! String
                             newEmail.settingKey = newRecordArray["SettingKey"] as! String
                             newEmail.settingValue = newRecordArray["SettingValue"] as! String

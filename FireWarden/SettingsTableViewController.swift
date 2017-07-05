@@ -168,7 +168,7 @@ class SettingsTableViewController: UITableViewController {
             let nextScene = segue.destination as! GeneralTableViewController
             nextScene.settingsData = self.settingTypesArray
         } else if segue.identifier == "loginsSegue" {
-            // Do logins
+            _ = segue.destination as! LoginsViewController
         } else if segue.identifier == "countriesSegue" {
             let nextScene = segue.destination as! CountriesTableViewController
             nextScene.countriesArray = self.countriesArray
@@ -380,7 +380,7 @@ class SettingsTableViewController: UITableViewController {
     }
     
     func prepareForLoginsSegue() {
-        
+        self.performSegue(withIdentifier: "loginsSegue", sender: self)
     }
     
     func prepareForCountriesSegue() {
