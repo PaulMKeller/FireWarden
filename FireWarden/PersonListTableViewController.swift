@@ -9,6 +9,9 @@
 import UIKit
 
 class PersonListTableViewController: UITableViewController {
+    
+    var wardenList = [Warden]()
+    var personList = [PersonListObj]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,12 +32,23 @@ class PersonListTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return wardenList.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 1
+        //return 1
+        
+        //Write a stored proc to return wardens with a count of people
+        //Put it in an array and use the section number to correspond to the 
+        //warden row and return it's count
+        
+        switch section {
+        case 1:
+            return 1
+        default:
+            return 1
+        }
     }
 
     

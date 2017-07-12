@@ -264,13 +264,7 @@
                             <outlet property="delegate" destination="Q9Y-DL-9AP" id="2oN-Pk-7mF"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Person List" id="GiX-OS-Prc">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="IMQ-rh-B9s">
-                            <connections>
-                                <segue destination="dQi-gT-afZ" kind="show" identifier="AddNewPersonSegue" id="Lrl-9x-kXI"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Person List" id="GiX-OS-Prc"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="awl-0p-LtY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -307,7 +301,6 @@
                     </view>
                     <navigationItem key="navigationItem" title="Person Details" id="eOg-pV-CZg">
                         <barButtonItem key="backBarButtonItem" title="Back" id="1bE-j0-QEC"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Q5y-yN-dIJ"/>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T6u-bP-3o8" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -830,7 +823,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pKK-5R-Rwl" id="2Ea-cf-EGf">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -1169,12 +1162,11 @@
         <image name="Settings.png" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="VAp-c4-P77"/>
-        <segue reference="Lrl-9x-kXI"/>
-        <segue reference="eSa-jl-yyM"/>
         <segue reference="1sx-nE-0Oa"/>
-        <segue reference="rYu-Nb-nos"/>
-        <segue reference="fQ0-KI-HWq"/>
+        <segue reference="VAp-c4-P77"/>
         <segue reference="0sK-5F-vdu"/>
+        <segue reference="eSa-jl-yyM"/>
+        <segue reference="fQ0-KI-HWq"/>
+        <segue reference="rYu-Nb-nos"/>
     </inferredMetricsTieBreakers>
 </document>

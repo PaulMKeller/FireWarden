@@ -47,6 +47,7 @@
 		DA402D971ECECBB900C3E835 /* PeopleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA402D961ECECBB900C3E835 /* PeopleTableViewController.swift */; };
 		DA402D991ECECC0F00C3E835 /* WardensTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA402D981ECECC0F00C3E835 /* WardensTableViewController.swift */; };
 		DA402D9B1ECED8F500C3E835 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA402D9A1ECED8F500C3E835 /* Location.swift */; };
+		DA43FB111F16042100A85CAF /* PersonListObj.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA43FB101F16042100A85CAF /* PersonListObj.swift */; };
 		DA6878421F0CF10A00BF6AF9 /* LoginsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6878411F0CF10A00BF6AF9 /* LoginsViewController.swift */; };
 		DA744D591ECC2B9300521EB8 /* Backlog.rtf in Resources */ = {isa = PBXBuildFile; fileRef = DA744D581ECC2B9300521EB8 /* Backlog.rtf */; };
 		DA77FC291EEF8BDD00FCC66F /* CountriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA77FC281EEF8BDD00FCC66F /* CountriesTableViewController.swift */; };
@@ -140,6 +141,7 @@
 		DA402D961ECECBB900C3E835 /* PeopleTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeopleTableViewController.swift; sourceTree = "<group>"; };
 		DA402D981ECECC0F00C3E835 /* WardensTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WardensTableViewController.swift; sourceTree = "<group>"; };
 		DA402D9A1ECED8F500C3E835 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		DA43FB101F16042100A85CAF /* PersonListObj.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonListObj.swift; sourceTree = "<group>"; };
 		DA6878411F0CF10A00BF6AF9 /* LoginsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginsViewController.swift; sourceTree = "<group>"; };
 		DA744D581ECC2B9300521EB8 /* Backlog.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = Backlog.rtf; sourceTree = "<group>"; };
 		DA77FC281EEF8BDD00FCC66F /* CountriesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountriesTableViewController.swift; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 				DA88753D1EF110AC00D360B8 /* Person.swift */,
 				DA171C291EF2A0500013A8D6 /* Warden.swift */,
 				DA2853271F026E80001816AC /* SettingTypeObj.swift */,
+				DA43FB101F16042100A85CAF /* PersonListObj.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -547,6 +550,7 @@
 				DAFCD34A1EB082390055DAD5 /* RegisterTableViewController.swift in Sources */,
 				DA30D2B51EB8364200D6ACAF /* SettingTypeTableViewController.swift in Sources */,
 				DA402D9B1ECED8F500C3E835 /* Location.swift in Sources */,
+				DA43FB111F16042100A85CAF /* PersonListObj.swift in Sources */,
 				DA402D991ECECC0F00C3E835 /* WardensTableViewController.swift in Sources */,
 				DA2853261F026B50001816AC /* EmailPassback.swift in Sources */,
 				DAD1AD661EC5945000E9834C /* Login.swift in Sources */,
