@@ -30,7 +30,7 @@ class SettingsTableViewController: UITableViewController {
         settingsList.append("People")
         settingsList.append("Wardens")
         settingsList.append("General")
-        settingsList.append("Logins")
+        //settingsList.append("Logins")
     }
 
     override func didReceiveMemoryWarning() {
