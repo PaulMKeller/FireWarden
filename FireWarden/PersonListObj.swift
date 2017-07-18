@@ -10,12 +10,13 @@ import Foundation
 
 class PersonListObj {
     
-    var personObj = Person()
     var wardenObj = Warden()
+    var personObj = [Person]()
     
     init() {
-        self.personObj = Person()
         self.wardenObj = Warden()
+        self.personObj = [Person]()
+        
     }
     
 }

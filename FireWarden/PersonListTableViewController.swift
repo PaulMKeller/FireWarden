@@ -10,7 +10,7 @@ import UIKit
 
 class PersonListTableViewController: UITableViewController {
     
-    var wardenList = [Warden]()
+    var wardenList = [WardenCount]()
     var personList = [PersonListObj]()
 
     override func viewDidLoad() {
@@ -21,6 +21,11 @@ class PersonListTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+
+        // I need to split the JSON into to return statements
+        // Create a new PHP script to execute 2 separate querues
+        // and build enbedded json.
     }
 
     override func didReceiveMemoryWarning() {
@@ -43,19 +48,19 @@ class PersonListTableViewController: UITableViewController {
         //Put it in an array and use the section number to correspond to the 
         //warden row and return it's count
         
-        switch section {
-        case 1:
-            return 1
-        default:
-            return 1
-        }
+        var sectionWarden = WardenCount()
+        sectionWarden = wardenList[section]
+        return Int(sectionWarden.personCount)
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "PersonCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "personCell", for: indexPath)
 
         // Configure the cell...
+        
+        
+        
 
         return cell
     }
