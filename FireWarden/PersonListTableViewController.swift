@@ -58,6 +58,9 @@ class PersonListTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "personCell", for: indexPath)
 
         // Configure the cell...
+        // Filter the PersonList by IndexPath.Section
+        // and set the rows.
+        
         
         
         

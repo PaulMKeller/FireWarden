@@ -56,9 +56,38 @@ class PersonListNavigationController: UINavigationController {
                             self.wardenList.removeAll()
                             for item in myJson {
                                 let obj = item as! NSDictionary
-                                let wardenCountObj = WardenCount(wardenID: obj["WardenID"] as! Int32, firstName: obj["FirstName"] as! String, lastName: obj["LastName"] as! String, personCount: obj["PersonCount"] as! Int32, sectionNumber: obj["SectionNumber"] as! Int32)
-                                print(wardenCountObj)
-                                self.wardenList.append(wardenCountObj)
+                                
+                                if obj.count <= 5 {
+                                    //It's a WardenCount obj
+                                    let wardenCountObj = WardenCount(wardenID: obj["WardenID"] as! Int32, firstName: obj["FirstName"] as! String, lastName: obj["LastName"] as! String, personCount: obj["PersonCount"] as! Int32, sectionNumber: obj["SectionNumber"] as! Int32)
+                                    print(wardenCountObj)
+                                    self.wardenList.append(wardenCountObj)
+                                    
+                                    let wardenPersonList = [Person]()
+                                    let listObj = PersonListObj()
+                                    listObj.wardenObj = wardenCountObj
+                                    listObj.personObj = wardenPersonList
+                                    
+                                    self.personList.append(listObj)
+                                    
+                                    //This creates an array of wardens with a blank personObj array
+                                    //the else part should then find the correct warden and append the personObj to that array
+                                }
+                                else
+                                {
+                                    //it's a PersonListObj
+                                    
+                                    let locationObj = Location(locationID: obj["PersonLocationID"] as! Int32, locationName: obj["LocationName"] as! String, floor: obj["Floor"] as! String, countryID: obj["PersonCountryID"] as! Int32, country: obj["Country"] as! String)
+                                    
+                                    let personObj = Person(personID: obj["PersonPersonID"] as! Int32, firstName: obj["FirstName"] as! String, lastName: obj["LastName"] as! String, gender: obj["Gender"] as! String, personLocation: locationObj)
+                                    
+                                    // Now you need to locate the correct row in WardenList and append the PersonObj
+                                    // to it's person array
+                                    //personList.index(where: <#T##(PersonListObj) throws -> Bool#>) Something like this...
+                                }
+                                
+                                
+                                
                             }
                             DispatchQueue.main.async(execute: {
                                 //self.activityIndicator.stopAnimating()

@@ -10,11 +10,11 @@ import Foundation
 
 class PersonListObj {
     
-    var wardenObj = Warden()
+    var wardenObj = WardenCount()
     var personObj = [Person]()
     
     init() {
-        self.wardenObj = Warden()
+        self.wardenObj = WardenCount()
         self.personObj = [Person]()
         
     }
