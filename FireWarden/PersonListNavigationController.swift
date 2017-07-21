@@ -59,7 +59,7 @@ class PersonListNavigationController: UINavigationController {
                                 
                                 if obj.count <= 5 {
                                     //It's a WardenCount obj
-                                    let wardenCountObj = WardenCount(wardenID: obj["WardenID"] as! Int32, firstName: obj["FirstName"] as! String, lastName: obj["LastName"] as! String, personCount: obj["PersonCount"] as! Int32, sectionNumber: obj["SectionNumber"] as! Int32)
+                                    let wardenCountObj = WardenCount(wardenID: obj["WardenID"] as! Int32, firstName: obj["FirstName"] as! String, lastName: obj["LastName"] as! String, personCount: obj["PersonCount"] as! Int32, sectionNumber: Int32(obj["SectionNumber"] as! String)!)
                                     print(wardenCountObj)
                                     self.wardenList.append(wardenCountObj)
                                     
@@ -84,19 +84,26 @@ class PersonListNavigationController: UINavigationController {
                                     // Now you need to locate the correct row in WardenList and append the PersonObj
                                     // to it's person array
                                     //personList.index(where: <#T##(PersonListObj) throws -> Bool#>) Something like this...
+                                    if let i = self.personList.index(where: { $0.wardenObj.wardenID == obj["WardenID"] as! Int32 }) {
+                                        //self.personList.insert(personObj, at: i)
+                                        let currentPersonListObj = self.personList[i]
+                                        currentPersonListObj.personObj.append(personObj)
+                                        
+                                        self.personList.remove(at: i)
+                                        self.personList.insert(currentPersonListObj, at: i)
+                                    }
                                 }
-                                
-                                
-                                
                             }
                             DispatchQueue.main.async(execute: {
                                 //self.activityIndicator.stopAnimating()
                                 //self.errorText.text = "Invalid Credentials Supplied"
-                                print("Successful Location Retrieval")
+                                print("Successful Person List Retrieval")
                                 
                                 //Pass the locations array to the next view
-                                self.performSegue(withIdentifier: "locationsSegue", sender: self)
+                                //self.performSegue(withIdentifier: "locationsSegue", sender: self)
                                 
+                                //I need to work out how to trigger the segue to the new view from navigation view controller to table view controller.
+                                // The code errors here.
                             })
                         }
                         else
