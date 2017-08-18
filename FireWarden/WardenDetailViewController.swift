@@ -233,7 +233,7 @@ class WardenDetailViewController: UIViewController, UIPickerViewDelegate, UIPick
                 {
                     do
                     {
-                        let myJson = try JSONSerialization.jsonObject(with: data!, options: [JSONSerialization.ReadingOptions.mutableContainers, JSONSerialization.ReadingOptions.allowFragments]) as AnyObject
+                        let myJson = try JSONSerialization.jsonObject(with: data!, options: [JSONSerialization.ReadingOptions.mutableContainers, JSONSerialization.ReadingOptions.allowFragments]) as! NSDictionary
                         print(myJson)
                         if myJson.count > 0
                         {

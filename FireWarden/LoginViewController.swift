@@ -78,7 +78,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 {
                     do
                     {
-                        let myJson = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
+                        let myJson = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as! NSArray
                         print(myJson)
                         if myJson.count > 0
                         {
