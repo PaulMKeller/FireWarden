@@ -65,6 +65,7 @@
 		DA9403A51EB1F46100092DCC /* PersonListNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9403A41EB1F46100092DCC /* PersonListNavigationController.swift */; };
 		DA9403A71EB1F4ED00092DCC /* PersonListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9403A61EB1F4ED00092DCC /* PersonListTableViewController.swift */; };
 		DA9403A91EB1F53500092DCC /* PersonListDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9403A81EB1F53500092DCC /* PersonListDetailViewController.swift */; };
+		DA984D301F54002500E9DB2E /* RegisterDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA984D2F1F54002500E9DB2E /* RegisterDetailViewController.swift */; };
 		DAAB0ECA1EE16D7800AE8978 /* PassDataBack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAB0EC91EE16D7800AE8978 /* PassDataBack.swift */; };
 		DAB1CDD61F1DF8FA00E94DE0 /* WardenCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB1CDD51F1DF8FA00E94DE0 /* WardenCount.swift */; };
 		DACDD5F41ED33DA900414373 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACDD5F31ED33DA900414373 /* Country.swift */; };
@@ -160,6 +161,7 @@
 		DA9403A41EB1F46100092DCC /* PersonListNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonListNavigationController.swift; sourceTree = "<group>"; };
 		DA9403A61EB1F4ED00092DCC /* PersonListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonListTableViewController.swift; sourceTree = "<group>"; };
 		DA9403A81EB1F53500092DCC /* PersonListDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonListDetailViewController.swift; sourceTree = "<group>"; };
+		DA984D2F1F54002500E9DB2E /* RegisterDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterDetailViewController.swift; sourceTree = "<group>"; };
 		DAAB0EC91EE16D7800AE8978 /* PassDataBack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassDataBack.swift; sourceTree = "<group>"; };
 		DAB1CDD51F1DF8FA00E94DE0 /* WardenCount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WardenCount.swift; sourceTree = "<group>"; };
 		DACDD5F31ED33DA900414373 /* Country.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
@@ -359,6 +361,7 @@
 				DA31ABD11EFA2B0700E9DA60 /* EmailListTableViewController.swift */,
 				DA31ABD51EFA6B5300E9DA60 /* EmailDetailListViewController.swift */,
 				DA6878411F0CF10A00BF6AF9 /* LoginsViewController.swift */,
+				DA984D2F1F54002500E9DB2E /* RegisterDetailViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -569,6 +572,7 @@
 				DA6878421F0CF10A00BF6AF9 /* LoginsViewController.swift in Sources */,
 				DA30D2B11EB834E800D6ACAF /* SettingsNavigationController.swift in Sources */,
 				DA8875401EF139F500D360B8 /* PersonPassBack.swift in Sources */,
+				DA984D301F54002500E9DB2E /* RegisterDetailViewController.swift in Sources */,
 				DAAB0ECA1EE16D7800AE8978 /* PassDataBack.swift in Sources */,
 				DA31ABD21EFA2B0700E9DA60 /* EmailListTableViewController.swift in Sources */,
 				DA88753C1EF0E78A00D360B8 /* PersonDetailViewController.swift in Sources */,

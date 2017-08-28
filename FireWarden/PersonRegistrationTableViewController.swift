@@ -38,7 +38,7 @@ class PersonRegistrationTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "PersonRegistration", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "personRegistrationCell", for: indexPath)
 
         // Configure the cell...
 
